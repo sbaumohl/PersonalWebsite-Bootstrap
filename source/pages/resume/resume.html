@@ -17,8 +17,8 @@
     />
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script
@@ -31,9 +31,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-
     <!--other meta tags -->
-    <link rel="stylesheet" type="text/css" href="cover.css" />
     <title>SamBaumohl.com</title>
   </head>
   <body class="bg-dark">
@@ -59,7 +57,39 @@
         </li>
       </ul>
     </nav>
-    <h1 class="test-primary">Work in Progress</h1>
-    <!-- Optional JavaScript -->
+    <div>
+      <div
+        class="card mx-auto mt-5 mb-xs-3"
+        style="width: 25rem;"
+        id="loginCard"
+      >
+        <div class="card-body">
+          <h5 class="card-title">Password Required</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            For privacy reasons, I won't publicly display my full resume.
+          </h6>
+          <form>
+            <div class="form-group">
+              <input
+                class="form-control mr-1 d-inline-block"
+                type="password"
+                id="PasswordInput"
+                placeholder="Password"
+                style="width: 15rem;height: 2.5rem;"
+              />
+              <input
+                class="btn btn-primary mb-1 d-inline-block"
+                type="button"
+                value="Submit"
+                onclick="CheckPassword()"
+                style=""
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="Resume" class="ml-sm-5 mt-4 mx-auto text-white"></div>
+    <script type="text/javascript" src="resume.js"></script>
   </body>
 </html>
