@@ -1,12 +1,17 @@
 const express = require("express");
-const compression = require("compression");
-const app = express();
 const config = require("./protected/config.js");
-const request = require("request");
+const port = 3000;
+const app = express();
+//middleware
+var compression = require("compression");
+var request = require("request");
+var favicon = require("serve-favicon");
 var bodyParser = require("body-parser");
 var cors = require("cors");
-const port = 3000;
+var path = require("path");
 
+//favicon
+app.use(favicon(path.join(__dirname, "/assets/icons", "favicon.ico")));
 // gzip compression
 app.use(compression());
 // CORS
