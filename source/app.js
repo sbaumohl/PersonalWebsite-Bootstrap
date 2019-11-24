@@ -4,10 +4,21 @@ const app = express();
 const config = require("./protected/config.js");
 const request = require("request");
 var bodyParser = require("body-parser");
+var cors = require("cors");
 const port = 3000;
 
 // gzip compression
 app.use(compression());
+// CORS
+app.use(cors());
+var corsOptions = {
+  origin: config.request_api_origin,
+  optionsSuccessStatus: 200 // some legacy software chokes on 204
+};
+// compression
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // home page
 app.get("/", (req, res) => res.sendFile("index.html", { root: __dirname }));
 // redirect /index.html to / to have a single hompage callable from both spots
@@ -17,14 +28,12 @@ app.use("/assets", express.static("assets"));
 
 app.use("/pages", express.static("pages"));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.post("/special/password", function(req, res) {
+//this POST acts as an inbetween to connecting the resume.js Jquery request to the Flask API
+app.post("/special/password", cors(corsOptions), function(req, res) {
   request(
     {
       method: "POST",
-      uri: "http://127.0.0.1:5000/api/v2/resume",
+      uri: config.flask_api_origin + "/api/v2/resume",
       body: JSON.stringify({
         passcode: req.body.passcode
       }),
@@ -35,6 +44,7 @@ app.post("/special/password", function(req, res) {
       }
     },
     function(e, r, body) {
+      console.log(body);
       res.send(body);
     }
   );
