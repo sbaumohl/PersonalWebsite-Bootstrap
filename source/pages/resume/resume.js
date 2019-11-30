@@ -27,8 +27,11 @@ window.CheckPassword = function() {
   };
 
   $.ajax(settings).done(function(response) {
-    html_insert = JSON.parse(response).resume_html;
-    loginCard.parentNode.removeChild(loginCard);
-    resumeDiv.innerHTML = html_insert;
+    console.log(JSON.parse(response).status);
+    if (JSON.parse(response).status == 1) {
+      html_insert = JSON.parse(response).resume_html;
+      loginCard.parentNode.removeChild(loginCard);
+      resumeDiv.innerHTML = html_insert;
+    }
   });
 };
