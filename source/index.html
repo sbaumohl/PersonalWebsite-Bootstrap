@@ -15,6 +15,22 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <!--other meta tags -->
     <link
       rel="apple-touch-icon"
@@ -41,26 +57,41 @@
       class="navbar navbar-expand-sm navbar-dark"
       style="background-color: #242424;"
     >
-      <ul class="navbar-nav">
-        <li class="nav-item active ml-4">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item ml-4">
-          <a class="nav-link" href="pages/resume/resume.html">Resume</a>
-        </li>
-        <li class="nav-item ml-4">
-          <a class="nav-link" href="pages/debate/debate.html">Debate (NSDA)</a>
-        </li>
-        <li class="nav-item ml-4">
-          <a class="nav-link" href="pages/about/about.html">About</a>
-        </li>
-      </ul>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item active ml-4">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item ml-4">
+            <a class="nav-link" href="pages/resume/resume.html">Resume</a>
+          </li>
+          <li class="nav-item ml-4">
+            <a class="nav-link" href="pages/debate/debate.html"
+              >Debate (NSDA)</a
+            >
+          </li>
+          <li class="nav-item ml-4">
+            <a class="nav-link" href="pages/about/about.html">About</a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <div class="text-white container-fluid" style="height:100%;">
-      <h1 class="position-relative text-center pt-sm-5 mt-md-5">
+      <h1 class="position-relative d-block text-center pt-5 mt-5">
         SamBaumohl.com
       </h1>
-      <h4 class="text-center mb-5 pb-md-5">
+      <h4 class="text-center d-block mb-5 pb-md-5">
         I am Sam Baumohl, a student and a junior developer.
       </h4>
     </div>
@@ -68,7 +99,7 @@
     <div class="text-black container-fluid bg-light">
       <h1 class="text-center font-weight-light pt-3">Skills</h1>
       <div class="row py-3">
-        <div class="col">
+        <div class="col pt-3">
           <div class="card mx-auto" style="width: 14rem;">
             <img
               class="card-img-top"
@@ -80,7 +111,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col pt-3">
           <div class="card mx-auto" style="width: 14rem;">
             <img
               class="card-img-top"
@@ -92,7 +123,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col pt-3">
           <div class="card mx-auto" style="width: 14rem;">
             <img
               class="card-img-top"
@@ -106,7 +137,7 @@
         </div>
       </div>
       <div class="row py-3">
-        <div class="col">
+        <div class="col pt-3">
           <div class="card mx-auto" style="width: 14rem;">
             <img
               class="card-img-top"
@@ -118,7 +149,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col pt-3">
           <div class="card mx-auto" style="width: 14rem;">
             <img
               class="card-img-top"
@@ -130,7 +161,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col pt-3">
           <div class="card mx-auto" style="width: 14rem;">
             <img
               class="card-img-top"

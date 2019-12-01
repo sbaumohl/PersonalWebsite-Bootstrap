@@ -15,6 +15,22 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <!--other meta tags -->
     <title>SamBaumohl.com</title>
     <link
@@ -41,22 +57,34 @@
       class="navbar navbar-expand-sm navbar-dark"
       style="background-color: #242424;"
     >
-      <ul class="navbar-nav">
-        <li class="nav-item ml-4">
-          <a class="nav-link" href="../../index.html">Home</a>
-        </li>
-        <li class="nav-item ml-4">
-          <a class="nav-link" href="../resume/resume.html">Resume</a>
-        </li>
-        <li class="nav-item ml-4">
-          <a class="nav-link" href="../debate/debate.html">Debate (NSDA)</a>
-        </li>
-        <li class="nav-item active ml-4">
-          <a class="nav-link" href="../about/about.html">About</a>
-        </li>
-      </ul>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item ml-4">
+            <a class="nav-link" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item ml-4">
+            <a class="nav-link" href="../resume/resume.html">Resume</a>
+          </li>
+          <li class="nav-item ml-4">
+            <a class="nav-link" href="../debate/debate.html">Debate (NSDA)</a>
+          </li>
+          <li class="nav-item ml-4 active">
+            <a class="nav-link" href="../about/about.html">About</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-
     <div class="container-fluid pt-4 pl-5" style="position:relative;">
       <img
         style="width: 10rem;"
@@ -75,7 +103,7 @@
             >https://konpa.github.io/devicon/</a
           >. The site runs on <a href="https://expressjs.com/">Express JS</a>.
         </p>
-        <h5 class="text-info">Website Version 1.1</h5>
+        <h5 class="text-info">Website Version 1.2</h5>
       </div>
     </div>
     <!-- Optional JavaScript -->
