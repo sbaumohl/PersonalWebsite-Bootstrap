@@ -55,5 +55,15 @@ app.post("/special/password", cors(corsOptions), function(req, res) {
   );
 });
 
+// Crab Rave Prank
+app.get("/passwords/secret.html", (req, res) =>
+  res.redirect("https://youtu.be/LDU_Txk06tM?t=75")
+);
+
+//Mary Ryder House Fundraiser
+app.get("/fund", (req, res) =>
+  res.redirect("https://www.gofundme.com/f/computers-for-mary-ryder-home")
+);
+
 // start app
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
