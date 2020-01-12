@@ -3,10 +3,10 @@ loginCard = document.getElementById("loginCard");
 resumeDiv = document.getElementById("Resume");
 
 var origin_url = "http://localhost:3000";
-origin_url = "https://sambaumohl.com";
+origin_url = "https://www.sambaumohl.com";
 
 var host = "localhost:3000";
-host = "sambaumohl.com";
+host = "www.sambaumohl.com";
 
 window.CheckPassword = function() {
   var settings = {

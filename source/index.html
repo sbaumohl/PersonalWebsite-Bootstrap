@@ -68,6 +68,19 @@
       href="assets/icons/favicon-16x16.png"
     />
     <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <style>
+      .parallax {
+        /* The image used */
+        /*background-color: black;*/
+        background-image: url(./assets/pics/index.png);
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
     <title>SamBaumohl.com</title>
   </head>
   <body class="bg-dark">
@@ -99,22 +112,23 @@
               >Debate (NSDA)</a
             >
           </li>
-          <li class="nav-item ml-4">
-            <a class="nav-link" href="pages/about/about.html">About</a>
-          </li>
         </ul>
       </div>
     </nav>
-    <div class="text-white container-fluid" style="height:100%;">
-      <h1 class="position-relative d-block text-center pt-5 mt-5">
-        SamBaumohl.com
-      </h1>
-      <h4 class="text-center d-block mb-5 pb-md-5">
-        I am Sam Baumohl, a student and a junior developer.
-      </h4>
+    <div
+      class="text-white parallax text-light"
+      style="height: 25rem;display: flex;align-items: center;"
+    >
+      <div class="mx-auto">
+        <h1 class="position-relative text-center pt-5">
+          SamBaumohl.com
+        </h1>
+        <h4 class="text-center d-block pb-md-5 mb-0">
+          I am Sam Baumohl, a student and a junior developer.
+        </h4>
+      </div>
     </div>
-
-    <div class="text-black container-fluid bg-light">
+    <div class="text-black container-fluid bg-dark">
       <h1 class="text-center font-weight-light pt-3">Skills</h1>
       <div class="row py-3">
         <div class="col pt-3">
@@ -193,11 +207,27 @@
         </div>
       </div>
     </div>
-    <!-- Optional JavaScript -->
+
+    <!-- Op tional JavaScript -->
     <script type="text/javascript">
       console.log(
         "super secret link: https://www.sambaumohl.com/passwords/secret.html"
       );
     </script>
+    <div class="parallax">
+      <div class="container mr-auto ml-0 mt-0">
+        <p>
+          This website was built by me using
+          <a href="https://getbootstrap.com/">Bootstrap 4</a>, which relies on
+          <a href="https://popper.js.org/">popper.js</a> and
+          <a href="https://jquery.com/">jquery</a>, and the icons were provided
+          via
+          <a href="https://konpa.github.io/devicon/"
+            >https://konpa.github.io/devicon/</a
+          >. The site runs on <a href="https://expressjs.com/">Express JS</a>.
+        </p>
+        <h5 class="text-info">Website Version 1.4</h5>
+      </div>
+    </div>
   </body>
 </html>

@@ -25,7 +25,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // home page
-app.get("/", (req, res) => res.sendFile("index.html", { root: __dirname }));
+app.get("/", (req, res) => {
+  res.sendFile("index.html", { root: __dirname });
+});
 // redirect /index.html to / to have a single hompage callable from both spots
 app.get("/index.html", (req, res) => res.redirect("/"));
 // assets and pages are used throughout the site and everything should be public
@@ -58,11 +60,6 @@ app.post("/special/password", cors(corsOptions), function(req, res) {
 // Crab Rave Prank
 app.get("/passwords/secret.html", (req, res) =>
   res.redirect("https://youtu.be/LDU_Txk06tM?t=75")
-);
-
-//Mary Ryder House Fundraiser
-app.get("/fund", (req, res) =>
-  res.redirect("https://www.gofundme.com/f/computers-for-mary-ryder-home")
 );
 
 // start app
