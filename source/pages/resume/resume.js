@@ -3,34 +3,34 @@ loginCard = document.getElementById("loginCard");
 resumeDiv = document.getElementById("Resume");
 
 var origin_url = "http://localhost:3000";
-origin_url = "https://www.sambaumohl.com";
-
 var host = "localhost:3000";
-host = "www.sambaumohl.com";
+//origin_url = "https://www.sambaumohl.com";
+//host = "www.sambaumohl.com";
 
 window.CheckPassword = function() {
-  var settings = {
-    async: true,
-    crossDomain: true,
-    url: origin_url + "/special/password",
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "*/*",
-      Host: host,
-      "Accept-Encoding": "gzip, deflate",
-      "Content-Length": "31",
-      Connection: "keep-alive"
-    },
-    processData: false,
-    data: '{\n    "passcode": "' + passwordInput.value + '"\n}'
+  var http = new XMLHttpRequest();
+
+  http.open("POST", origin_url + "/special/password", true);
+  http.setRequestHeader("Content-type", "application/json");
+  http.setRequestHeader("Accept-Encoding", "gzip, deflate");
+  http.setRequestHeader("Host", host);
+  http.responseType = "arraybuffer";
+
+  http.onreadystatechange = function() {
+    //Call a function when the state changes.
+    if (http.readyState == 4 && http.status == 200) {
+      var newBlob = new Blob([http.responseType], { type: "application/pdf" });
+      var data = window.URL.createObjectURL(newBlob);
+      var link = document.createElement("a");
+      link.href = data;
+      link.download = "standin.pdf";
+      link.click();
+      setTimeout(function() {
+        // For Firefox it is necessary to delay revoking the ObjectURL
+        window.URL.revokeObjectURL(data);
+      }, 100);
+    }
   };
 
-  $.ajax(settings).done(function(response) {
-    if (JSON.parse(response).status == 1) {
-      html_insert = JSON.parse(response).resume_html;
-      loginCard.parentNode.removeChild(loginCard);
-      resumeDiv.innerHTML = html_insert;
-    }
-  });
+  http.send('{\n    "passcode": "' + passwordInput.value + '"\n}');
 };
