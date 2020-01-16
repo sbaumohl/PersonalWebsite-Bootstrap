@@ -33,14 +33,12 @@ app.get("/index.html", (req, res) => res.redirect("/"));
 // assets and pages are used throughout the site and everything should be public
 app.use("/assets", express.static("assets"));
 
-app.use("/pages", express.static("pages"));
-
 //this POST acts as an inbetween to connecting the resume.js Jquery request to the Flask API
 app.post("/special/password", cors(corsOptions), function(req, res) {
   var passwordInput = req.body.passcode;
   for (var codeIndex = 0; codeIndex < config.codes.length; codeIndex++) {
     if (passwordInput === config.codes[codeIndex]) {
-      res.sendFile("./assets/resume/standin.pdf", { root: __dirname });
+      res.sendFile("./protected/resume/resume.pdf", { root: __dirname });
     }
   }
 });

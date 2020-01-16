@@ -7,7 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -36,18 +35,20 @@
         document.write(
           '<script src="/assets/dependencies/jquery-3.4.1.min.js"><\/script>'
         );
-    </script>
-    <script>
       window.Popper ||
         document.write(
           '<script src="/assets/dependencies/popper.min.js"><\/script>'
         );
-    </script>
-    <script>
       typeof $().emulateTransitionEnd == "function" ||
         document.write(
           '<script src="/assets/dependencies/bootstrap.min.js"><\/script>'
         );
+      $(function() {
+        $("#skills").load("/assets/homepage/skills.html");
+        $("#debate").load("/assets/homepage/debate.html");
+        $("#projects").load("/assets/homepage/projects.html");
+        $("#resume").load("/assets/homepage/resume.html");
+      });
     </script>
     <!--other meta tags -->
     <link
@@ -68,52 +69,13 @@
       href="assets/icons/favicon-16x16.png"
     />
     <link rel="manifest" href="assets/icons/site.webmanifest" />
-    <style>
-      .parallax {
-        /* The image used */
-        /*background-color: black;*/
-        background-image: url(./assets/pics/index.png);
-
-        /* Create the parallax scrolling effect */
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    </style>
+    <link type="text/css" rel="stylesheet" href="assets/styles/style.css" />
     <title>SamBaumohl.com</title>
   </head>
   <body class="bg-dark">
-    <nav
-      class="navbar navbar-expand-sm navbar-dark"
-      style="background-color: #242424;"
-    >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
-          <li class="nav-item active ml-4">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item ml-4">
-            <a class="nav-link" href="pages/resume/resume.html">Resume</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
     <div
       class="parallax text-dark"
-      style="height: 25rem;display: flex;align-items: center;"
+      style="height: 38rem;display: flex;align-items: center;"
     >
       <div class="mx-auto">
         <h1 class="position-relative text-center pt-5">
@@ -125,227 +87,34 @@
       </div>
     </div>
 
-    <div class="text-black container-fluid bg-dark">
-      <h1 class="text-center text-light pt-3">Skills</h1>
-      <div class="row py-3">
-        <div class="col pt-3">
-          <div class="card mx-auto border-0" style="width: 14rem;">
-            <img
-              class="card-img-top"
-              src="assets/css3/css3-original.svg"
-              alt="Card image cap"
-            />
-            <div class="card-body bg-primary text-white">
-              <h5 class="card-text text-center">CSS 3</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col pt-3">
-          <div class="card mx-auto border-0" style="width: 14rem;">
-            <img
-              class="card-img-top"
-              src="assets/html5/html5-original.svg"
-              alt="Card image cap"
-            />
-            <div class="card-body bg-primary text-white">
-              <h5 class="card-text text-center">HTML 5</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col pt-3">
-          <div class="card mx-auto border-0" style="width: 14rem;">
-            <img
-              class="card-img-top"
-              src="assets/javascript/javascript-original.svg"
-              alt="Card image cap"
-            />
-            <div class="card-body bg-primary text-white">
-              <h5 class="card-text text-center">Javascript</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row py-3">
-        <div class="col pt-3">
-          <div class="card mx-auto border-0" style="width: 14rem;">
-            <img
-              class="card-img-top"
-              src="assets/mysql/mysql-original-wordmark.svg"
-              alt="Card image cap"
-            />
-            <div class="card-body bg-primary text-white">
-              <h5 class="card-text text-center">MySql</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col pt-3">
-          <div class="card mx-auto border-0" style="width: 14rem;">
-            <img
-              class="card-img-top"
-              src="assets/java/java-original.svg"
-              alt="Card image cap"
-            />
-            <div class="card-body bg-primary text-white">
-              <h5 class="card-text text-center">Java</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col pt-3">
-          <div class="card mx-auto border-0" style="width: 14rem;">
-            <img
-              class="card-img-top"
-              src="assets/python/python-original.svg"
-              alt="Card image cap"
-            />
-            <div class="card-body bg-primary text-white">
-              <h5 class="card-text text-center">Python 3</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="pb-4 mt-3 container-fluid" id="skills"></div>
 
-    <div class="parallax pb-4">
-      <h2 class="text-center pt-5 pt-4">Debate Casefiles</h2>
-      <p class="text-center pt-0">
-        These casefiles are a mix of evidence I gathered and pre-annotated
-        evidence I found. I do not own any/all of the work in these files. These
-        are simply the casefiles I used in tournaments.
-      </p>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col px-1 py-2">
-            <div class="card shadow-lg mx-auto" style="width: 19rem;">
-              <div class="card-body">
-                <h5 class="card-title">
-                  Public Forum Beedev Meme Casefile
-                </h5>
-                <p class="card-text">
-                  <strong>November-December 2018</strong>: The United States
-                  federal government should impose price controls on the
-                  pharmaceutical industry.
-                </p>
-                <h6>
-                  <a
-                    href="../../assets/debate/beedev/beedev2.docx"
-                    class="btn btn-primary"
-                    >Download Case</a
-                  >
-                  <a
-                    class="btn btn-warning px-1"
-                    rel="noopener noreferrer"
-                    href="../../assets/debate/beedev/checksum.txt"
-                    target="_blank"
-                    >Checksum</a
-                  >
-                </h6>
-              </div>
-            </div>
-          </div>
-          <div class="col px-1 py-2">
-            <div class="card shadow-lg mx-auto" style="width: 19rem;">
-              <div class="card-body">
-                <h5 class="card-title">
-                  Lincoln-Douglas Casefile
-                </h5>
-                <p class="card-text">
-                  <strong>September-October 2019</strong>: Universities ought
-                  not use standardized tests for undergraduate admissions
-                  decisions.
-                </p>
-                <h6>
-                  <a
-                    href="../../assets/debate/standardized/CollegeBoardOutfmymind.docx"
-                    class="btn btn-primary"
-                    >Download Case</a
-                  >
-                  <a
-                    class="btn btn-warning px-1"
-                    rel="noopener noreferrer"
-                    href="../../assets/debate/standardized/checksum.txt"
-                    target="_blank"
-                    >Checksum</a
-                  >
-                </h6>
-              </div>
-            </div>
-          </div>
-          <div class="col px-1 py-2">
-            <div class="card shadow-lg mx-auto" style="width: 19rem;">
-              <div class="card-body">
-                <h5 class="card-title">
-                  Lincoln-Douglas Casefile
-                </h5>
-                <p class="card-text">
-                  <strong>November-December 2019</strong>: The United States
-                  ought to eliminate subsidies for fossil fuels.
-                </p>
-                <h6>
-                  <a
-                    href="../../assets/debate/fossil-fuels/CoalBad.docx"
-                    class="btn btn-primary"
-                    >Download Case</a
-                  >
-                  <a
-                    class="btn btn-warning px-1"
-                    rel="noopener noreferrer"
-                    href="../../assets/debate/fossil-fuels/checksum.txt"
-                    target="_blank"
-                    >Checksum</a
-                  >
-                </h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="parallax pb-4 mt-3" id="debate"></div>
 
-    <div class="mx-3 text-light" id="Portfolio">
-      <h1 class="text-center mt-3 mb-2">Projects</h1>
-      <div class="card border border-dark bg-dark">
-        <div class="card-body">
-          <h5 class="card-title">Google Trends Election Predictor</h5>
-          <p class="card-text">
-            Using Google Trends to predict the United States 2020 Presidential
-            Election.
-          </p>
-          <a href="https://election.sambaumohl.com" class="btn btn-primary"
-            >Go There</a
-          >
-          <a
-            class="btn btn-success"
-            href="https://github.com/MeMeBigProgrammer/trends-election-predictor"
-            >Github</a
-          >
-        </div>
-      </div>
-    </div>
+    <div class="text-light pb-4 mt-3" id="projects"></div>
+
+    <div class="parallax pb-4 mt-3" id="resume"></div>
 
     <div
-      class="text-center parallax"
+      class="text-center text-white"
       style="display: flex;align-items: center;"
     >
       <div class="mx-auto">
         <p>
-          Copyright Sam Baumohl 2020. Using
-          <a class="text-danger" href="https://getbootstrap.com/">Bootstrap 4</a
-          >, <a class="text-danger" href="https://popper.js.org/">popper.js</a>,
-          <a class="text-danger" href="https://jquery.com/">jquery</a>,
-          <a class="text-danger" href="https://expressjs.com/">Express JS</a>,
-          and the
-          <a class="text-danger" href="https://konpa.github.io/devicon/"
-            >icons</a
-          >.
+          <a href="https://getbootstrap.com/">Bootstrap 4</a>,
+          <a href="https://popper.js.org/">popper.js</a>,
+          <a href="https://jquery.com/">jquery</a>,
+          <a href="https://expressjs.com/">Express JS</a>, and
+          <a href="https://konpa.github.io/devicon/">icons</a>.
         </p>
-        <p class="text-info">Website Version 2.0</p>
+        <p>Website Version 2.0</p>
       </div>
-      <!-- Optional JavaScript -->
-      <script type="text/javascript">
-        console.log(
-          "super secret link: https://www.sambaumohl.com/passwords/secret.html"
-        );
-      </script>
     </div>
+    <!-- Optional JavaScript -->
+    <script type="text/javascript">
+      console.log(
+        "super secret link: https://www.sambaumohl.com/passwords/secret.html"
+      );
+    </script>
   </body>
 </html>
