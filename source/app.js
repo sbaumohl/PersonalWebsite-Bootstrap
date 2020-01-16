@@ -1,5 +1,5 @@
 const express = require("express");
-const config = require("./protected/config.js");
+const config = require("./protected/test.config.js");
 const port = 3000;
 const app = express();
 //middleware
@@ -18,7 +18,7 @@ app.use(compression());
 app.use(cors());
 var corsOptions = {
   origin: config.request_api_origin,
-  optionsSuccessStatus: 200 // some legacy software chokes on 204
+  optionsSuccessStatus: 200
 };
 // compression
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,28 +33,14 @@ app.get("/index.html", (req, res) => res.redirect("/"));
 // assets and pages are used throughout the site and everything should be public
 app.use("/assets", express.static("assets"));
 
-app.use("/pages", express.static("pages"));
-
 //this POST acts as an inbetween to connecting the resume.js Jquery request to the Flask API
 app.post("/special/password", cors(corsOptions), function(req, res) {
-  request(
-    {
-      method: "POST",
-      uri: config.flask_api_origin + "/api/v2/resume",
-      body: JSON.stringify({
-        passcode: req.body.passcode
-      }),
-      headers: {
-        "content-type": "application/json",
-        apikey: config.api_key_name,
-        apipassword: config.api_key_password
-      }
-    },
-    function(e, r, body) {
-      console.log(body);
-      res.send(body);
+  var passwordInput = req.body.passcode;
+  for (var codeIndex = 0; codeIndex < config.codes.length; codeIndex++) {
+    if (passwordInput === config.codes[codeIndex]) {
+      res.sendFile("./protected/resume/resume.pdf", { root: __dirname });
     }
-  );
+  }
 });
 
 // Crab Rave Prank
