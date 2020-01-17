@@ -1,5 +1,5 @@
 const express = require("express");
-const config = require("./protected/test.config.js");
+const config = require("./protected/prod.config.js");
 const port = 3000;
 const app = express();
 //middleware
