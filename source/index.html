@@ -93,9 +93,14 @@
     </div>
     <!-- Optional JavaScript -->
     <script type="text/javascript">
-      console.log(
-        "super secret link: https://www.sambaumohl.com/passwords/secret.html"
-      );
+    $(function() {
+      $("#skills").load("/assets/homepage/skills.html");
+      $("#debate").load("/assets/homepage/debate.html");
+      $("#projects").load("/assets/homepage/projects.html");
+      $("#resume").load("/assets/homepage/resume.html");
+    });
+  </script>
+    <script type="text/javascript" defer>
       window.jQuery ||
         document.write(
           '<script src="/assets/dependencies/jquery-3.4.1.min.js"><\/script>'
@@ -108,12 +113,9 @@
         document.write(
           '<script src="/assets/dependencies/bootstrap.min.js"><\/script>'
         );
-      $(function() {
-        $("#skills").load("/assets/homepage/skills.html");
-        $("#debate").load("/assets/homepage/debate.html");
-        $("#projects").load("/assets/homepage/projects.html");
-        $("#resume").load("/assets/homepage/resume.html");
-      });
-    </script>
+        console.log(
+          "super secret link: https://www.sambaumohl.com/passwords/secret.html"
+        );
+      </script>
   </body>
 </html>
