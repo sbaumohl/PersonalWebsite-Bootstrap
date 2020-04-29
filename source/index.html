@@ -13,28 +13,30 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-      async
+      defer
     />
     <!-- jQuery first, then Popper.js, then Bootstrap JS, then fallbacks for each -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
-      async
+      defer
     ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
       crossorigin="anonymous"
-      async
+      defer
     ></script>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
-      async
+      defer
     ></script>
     <!--other meta tags -->
+    <link type="text/css" rel="stylesheet" href="assets/styles/style.css" async/>
+    <script type="text/javascript" src="assets/scripts/resume.js" defer></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -53,8 +55,6 @@
       href="assets/icons/favicon-16x16.png"
     />
     <link rel="manifest" href="assets/icons/site.webmanifest" />
-    <link type="text/css" rel="stylesheet" href="assets/styles/style.css" async/>
-    <script type="text/javascript" src="assets/scripts/resume.js" defer></script>
     <title>SamBaumohl.com</title>
   </head>
   <body class="bg-dark text-dark">
@@ -336,18 +336,6 @@
     </div>
     <!-- Optional JavaScript -->
     <script type="text/javascript" defer>
-      window.jQuery ||
-        document.write(
-          '<script src="/assets/dependencies/jquery-3.4.1.min.js"><\/script>'
-        );
-      window.Popper ||
-        document.write(
-          '<script src="/assets/dependencies/popper.min.js"><\/script>'
-        );
-      typeof $().emulateTransitionEnd == "function" ||
-        document.write(
-          '<script src="/assets/dependencies/bootstrap.min.js"><\/script>'
-        );
         console.log(
           "super secret link: https://www.sambaumohl.com/passwords/secret.html"
         );
