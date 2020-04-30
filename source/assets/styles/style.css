@@ -19,5 +19,14 @@
   justify-content: center;
 }
 body {
+  font-family: 'Roboto', sans-serif;
   height: 100%;
+}
+
+p {
+  font-size: 1.05rem;
+}
+
+#bigNameTitle {
+  font-size: 7vw;
 }
