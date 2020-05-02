@@ -2,8 +2,8 @@ passwordInput = document.getElementById("PasswordInput");
 
 var origin_url = "http://localhost:3000";
 var host = "localhost:3000";
-// origin_url = "https://www.sambaumohl.com";
-// host = "www.sambaumohl.com";
+origin_url = "https://www.sambaumohl.com";
+host = "www.sambaumohl.com";
 
 window.CheckPassword = function() {
   var http = new XMLHttpRequest();
