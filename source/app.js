@@ -32,6 +32,7 @@ app.get("/", (req, res) => {
 app.get("/index.html", (req, res) => res.redirect("/"));
 // assets and pages are used throughout the site and everything should be public
 app.use("/assets", express.static("assets"));
+
 app.use("/dist", express.static("node_modules/bootstrap/dist"));
 
 //this POST acts as an inbetween to connecting the resume.js Jquery request to the Flask API
