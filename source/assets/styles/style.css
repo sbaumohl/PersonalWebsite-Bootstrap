@@ -18,6 +18,11 @@
   align-items: center;
   justify-content: center;
 }
+.site-links-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
