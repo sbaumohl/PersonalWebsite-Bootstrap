@@ -1,6 +1,4 @@
 -----BEGIN PGP PUBLIC KEY BLOCK-----
-Comment: User-ID:	<sbbaumo@tutanota.com>
-Comment: a.k.a.:	Yahoo <sbbaumo@yahoo.com>
 Comment: Created:	5/4/2020 1:10 PM
 Comment: Type:	2048-bit RSA (secret key available)
 Comment: Usage:	Signing, Encryption, Certifying User-IDs
