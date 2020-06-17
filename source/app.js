@@ -30,6 +30,10 @@ app.get("/", (req, res) => {
 });
 // redirect /index.html to / to have a single hompage callable from both spots
 app.get("/index.html", (req, res) => res.redirect("/"));
+
+//redirect /pgp to pgp.text
+app.get("/pgp", (req, res) => res.redirect("/assets/pgp/key.txt"));
+
 // assets and pages are used throughout the site and everything should be public
 app.use("/assets", express.static("assets"));
 
