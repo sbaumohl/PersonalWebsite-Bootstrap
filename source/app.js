@@ -25,19 +25,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // home page
-app.get("/", (req, res) => {
+app.get("/", cors(corsOptions), (req, res) => {
   res.sendFile("index.html", { root: __dirname });
 });
 // redirect /index.html to / to have a single hompage callable from both spots
-app.get("/index.html", (req, res) => res.redirect("/"));
+app.get("/index.html", cors(corsOptions), (req, res) => res.redirect("/"));
 
 //redirect /pgp to pgp.text
-app.get("/pgp", (req, res) => res.redirect("/assets/pgp/key.txt"));
+app.get("/pgp", cors(corsOptions), (req, res) => res.redirect("/assets/pgp/key.txt"));
 
 // assets and pages are used throughout the site and everything should be public
-app.use("/assets", express.static("assets"));
+app.use("/assets", cors(corsOptions), express.static("assets"));
 
-app.use("/dist", express.static("node_modules/bootstrap/dist"));
+app.use("/dist", cors(corsOptions), express.static("node_modules/bootstrap/dist"));
 
 //this POST acts as an inbetween to connecting the resume.js Jquery request to the Flask API
 app.post("/special/password", cors(corsOptions), function(req, res) {
@@ -50,7 +50,7 @@ app.post("/special/password", cors(corsOptions), function(req, res) {
 });
 
 // Crab Rave Prank
-app.get("/passwords/secret.html", (req, res) =>
+app.get("/passwords/secret.html", cors(corsOptions), (req, res) =>
   res.redirect("https://youtu.be/LDU_Txk06tM?t=75")
 );
 
