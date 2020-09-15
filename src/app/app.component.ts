@@ -79,7 +79,7 @@ export class AppComponent {
     },
     {
       title: "Email-Saver",
-      description: "A Python Script that uses IMAP to download your emails and attachments with one command",
+      description: "A Python script that uses IMAP to download your emails and attachments with one command.",
       sourceUrl: "https://github.com/MeMeBigProgrammer/Email-Saver"
     }
   ]
