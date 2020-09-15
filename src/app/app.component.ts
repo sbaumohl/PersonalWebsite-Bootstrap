@@ -23,14 +23,14 @@ export class AppComponent {
       title: "Lincoln-Douglas Casefile",
       time: "September-October 2019",
       resolution: "Universities ought not use standardized tests for undergraduate admissions decisions.",
-      caseUrl: "../assets/debate/fossil-fuels/CoalBad.docx",
+      caseUrl: "../assets/debate/standardized/CollegeBoardOutfmymind.docx",
       checksumUrl: "../assets/debate/fossil-fuels/checksum.txt"
     },
     {
       title: "Lincoln-Douglas Casefile",
       time: "November-December 2019",
       resolution: "The United States ought to eliminate subsidies for fossil fuels.",
-      caseUrl: "../assets/debate/standardized/CollegeBoardOutfmymind.docx",
+      caseUrl: "../assets/debate/fossil-fuels/CoalBad.docx",
       checksumUrl: "../assets/debate/standardized/checksum.txt"
     }
   ]
