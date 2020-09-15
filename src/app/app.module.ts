@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app.routing';
+// import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 
 // Third party modules
@@ -15,7 +15,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     FontAwesomeModule
   ],
   providers: [],
