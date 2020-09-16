@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // import { fa } from '@fortawesome/free-solid-svg-icons';
-import { faHtml5, faCss3Alt, faJava, faLinux, faPython, faJs, faAngular, faNodeJs } from '@fortawesome/free-brands-svg-icons';
+import { faHtml5, faCss3Alt, faJava, faUbuntu, faPython, faJs, faAngular, faNodeJs } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -57,7 +57,7 @@ export class AppComponent {
       name: "Python"
     },
     {
-      icon: faLinux,
+      icon: faUbuntu,
       name: "Linux"
     },
     {
