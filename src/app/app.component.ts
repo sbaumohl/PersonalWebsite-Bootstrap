@@ -32,6 +32,13 @@ export class AppComponent {
       resolution: "The United States ought to eliminate subsidies for fossil fuels.",
       caseUrl: "../assets/debate/fossil-fuels/CoalBad.docx",
       checksumUrl: "../assets/debate/standardized/checksum.txt"
+    },
+    {
+      title: "Lincoln-Douglas Casefile",
+      time: "March 2020",
+      resolution: "Predictive Policing is injust.",
+      caseUrl: "../assets/debate/ppolicing/policing.docx",
+      checksumUrl: "../assets/debate/ppolicing/checksum.txt"
     }
   ]
 
