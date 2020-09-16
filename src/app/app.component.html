@@ -51,7 +51,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col px-1 py-2" *ngFor="let case of debateCases">
-          <div class="card shadow-lg mx-auto" style="width: 19rem; min-height:16rem;">
+          <div class="card shadow-lg mx-auto" style="width: 20rem; min-height:16rem;">
             <div class="card-body">
               <h5 class="card-title">
                 {{ case.title }}
@@ -59,7 +59,7 @@
               <p class="card-text">
                 <strong>{{ case.time }}</strong>: {{ case.resolution }}
               </p>
-              <h6>
+              <div class="debate-buttons">
                 <a [href]=case.caseUrl class="btn btn-primary">Get Case
                   <fa-icon [icon]="['fas','arrow-down']"></fa-icon>
                 </a>
@@ -67,7 +67,7 @@
                   target="_blank">Checksum
                   <fa-icon [icon]="['fas','check-square']"></fa-icon>
                 </a>
-              </h6>
+              </div>
             </div>
           </div>
         </div>
