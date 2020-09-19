@@ -3,26 +3,26 @@
       <h1 class="position-relative text-center container" id="bigNameTitle">
         SamBaumohl.com
       </h1>
-      <h4 class="text-center d-block mb-0">
+      <h4 class="text-center d-block mb-1">
         I am Sam Baumohl, a student and a junior developer.
       </h4>
-      <div class="site-links-group row mt-3 container px-1" role="group" aria-label="Site Links">
-        <div class="col text-center">
+      <div class="site-links-group row mt-3 mx-auto px-0 container" role="group" aria-label="Site Links">
+        <div class="col-sm text-center mt-2">
           <a type="button" class="btn btn-success mx-auto" href="https://github.com/MeMeBigProgrammer">Github
             <fa-icon [icon]="['fab','github']"></fa-icon>
           </a>
         </div>
-        <div class="col text-center">
+        <div class="col-sm text-center mt-2">
           <a type="button" class="btn btn-warning mx-auto" href="assets/pgp/key.txt">PGP
             <fa-icon [icon]="['fas','key']"></fa-icon>
           </a>
         </div>
-        <div class="col text-center">
+        <div class="col-sm text-center mt-2">
           <a type="button" class="btn btn-info mx-auto" href="mailto:mail@sambaumohl.me">Email
             <fa-icon [icon]="['fas','envelope']"></fa-icon>
           </a>
         </div>
-        <div class="col text-center ">
+        <div class="col-sm text-center mt-2">
           <a type="button" class="btn btn-primary mx-auto" href="https://www.linkedin.com/in/sam-baumohl09">Linkedin
             <fa-icon [icon]="['fab','linkedin']"></fa-icon>
           </a>
@@ -34,7 +34,7 @@
   <div class="pb-4 mt-2 container-fluid" id="skills">
     <h1 class="text-light text-center py-4">Skills</h1>
     <div class="row py-3">
-      <div class="col pt-2 skill" *ngFor="let skill of skills">
+      <div class="col pt-2 skill mx-md-5 px-md-5" *ngFor="let skill of skills">
         <fa-icon [icon]=skill.icon size="10x" [styles]="{'stroke': 'white', 'color': 'white'}"></fa-icon>
         <h3 class="text-light d-block pt-2">{{skill.name}}</h3>
       </div>
