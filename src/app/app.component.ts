@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // import { fa } from '@fortawesome/free-solid-svg-icons';
 import { faHtml5, faCss3Alt, faJava, faUbuntu, faPython, faJs, faAngular, faNodeJs } from '@fortawesome/free-brands-svg-icons';
