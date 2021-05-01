@@ -84,12 +84,12 @@ export class AppComponent {
       projectUrl: "https://mymicds.net",
       sourceUrl: "https://github.com/MyMICDS/"
     }
-//     ,
-//     {
-//       title: "Email-Saver",
-//       description: "A Python script that uses IMAP to download your emails and attachments with one command.",
-//       sourceUrl: "https://github.com/MeMeBigProgrammer/Email-Saver"
-//     }
+    ,
+    {
+      title: "BYO Style-Based GAN",
+      description: "A simple implementation of Stylegan using PyTorch.",
+      sourceUrl: "https://github.com/MeMeBigProgrammer/BYO-GAN"
+    }
   ]
 
 }
