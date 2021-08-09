@@ -1,10 +1,10 @@
-  <div class="parallax fill-screen flex-center">
+  <div class="name-header">
     <div class="d-inline-block">
       <h1 class="position-relative text-center container" id="bigNameTitle">
         SamBaumohl.com
       </h1>
       <h4 class="text-center d-block mb-1">
-        I am Sam Baumohl, a student and a junior developer.
+        Sam Baumohl is a full-stack developer from Missouri.
       </h4>
       <div class="site-links-group row mt-3 mx-auto px-0 container" role="group" aria-label="Site Links">
         <div class="col-sm text-center mt-2">
@@ -31,49 +31,17 @@
     </div>
   </div>
 
-  <div class="pb-4 mt-2 container-fluid" id="skills">
-    <h1 class="text-light text-center py-4">Skills</h1>
+  <div class="pb-4 mt-2 container-fluid section" id="skills">
+    <h1 class="text-center py-4">Skills</h1>
     <div class="row py-3">
-      <div class="col pt-2 skill mx-md-5 px-md-5" *ngFor="let skill of skills">
-        <fa-icon [icon]=skill.icon size="10x" [styles]="{'stroke': 'white', 'color': 'white'}"></fa-icon>
-        <h3 class="text-light d-block pt-2">{{skill.name}}</h3>
+      <div class="col pt-2 skill px-md-2" *ngFor="let skill of skills">
+        <fa-icon [icon]=skill.icon size="6x" [styles]="{'stroke': 'white', 'color': 'white'}"></fa-icon>
+        <h3 class="d-block pt-2">{{skill.name}}</h3>
       </div>
     </div>
   </div>
 
-  <div class="parallax pb-4 mt-3" id="debate">
-    <h1 class="text-center pt-5 pb-2">Debate Casefiles</h1>
-    <p class="text-center pt-0 pb-4">
-      These are case files that I have used in tournaments. 
-    </p>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col px-1 py-2" *ngFor="let case of debateCases">
-          <div class="card shadow-lg mx-auto" style="width: 20rem; min-height:16rem;">
-            <div class="card-body">
-              <h5 class="card-title">
-                {{ case.title }}
-              </h5>
-              <p class="card-text">
-                <strong>{{ case.time }}</strong>: {{ case.resolution }}
-              </p>
-              <div class="debate-buttons">
-                <a [href]=case.caseUrl class="btn btn-primary">Get Case
-                  <fa-icon [icon]="['fas','arrow-down']"></fa-icon>
-                </a>
-                <a class="btn btn-warning ml-3" rel="noopener noreferrer" [href]=case.checksumUrl
-                  target="_blank">Checksum
-                  <fa-icon [icon]="['fas','check-square']"></fa-icon>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="pb-4 mt-3 text-white" id="projects">
+  <div class="pb-4 mt-3 parallax container-fluid section" id="projects">
     <h1 class="text-center py-5 text-light">Projects</h1>
     <div class="card border border-dark bg-dark text-light" *ngFor="let project of resumeProjects">
       <div class="card-body ml-4">
