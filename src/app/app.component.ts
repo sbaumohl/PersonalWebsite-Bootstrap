@@ -11,7 +11,12 @@ import {
   faAngular,
   faNodeJs,
   faReact,
+  faGithub,
+  faLinkedin,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+
+import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-root",
@@ -66,8 +71,32 @@ export class AppComponent {
     },
     {
       title: "BYO Style-Based GAN",
-      description: "A simple implementation of Stylegan using PyTorch.",
+      description: "A simple implementation of StyleGAN using PyTorch.",
       sourceUrl: "https://github.com/MeMeBigProgrammer/BYO-GAN",
+    },
+  ];
+
+  headerLinks = [
+    {
+      icon: faGithub,
+      link: "https://github.com/MeMeBigProgrammer",
+      tooltip: "MeMeBigProgrammer",
+    },
+    { icon: faKey, link: "assets/pgp/key.txt", tooltip: "PGP Public Key" },
+    {
+      icon: faEnvelope,
+      link: "mailto:mail@sambaumohl.me",
+      tooltip: "mail@sambaumohl.me",
+    },
+    {
+      icon: faLinkedin,
+      link: "https://www.linkedin.com/in/sam-baumohl09",
+      tooltip: "LinkedIn Profile",
+    },
+    {
+      icon: faInstagram,
+      link: "https://www.instagram.com/sam_b2327",
+      tooltip: "@sam_b2327",
     },
   ];
 }

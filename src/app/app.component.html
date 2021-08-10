@@ -9,43 +9,17 @@
       </h5>
       <div
         class="site-links-group mt-3 mx-auto px-0 container"
-        role="group"
         aria-label="Site Links"
       >
-        <div class="text-center mt-2">
+        <div class="text-center" *ngFor="let link of headerLinks">
           <a
+            [href]="link.link"
             type="button"
-            class="btn btn-success mx-auto"
-            href="https://github.com/MeMeBigProgrammer"
-            >Github
-            <fa-icon [icon]="['fab', 'github']"></fa-icon>
-          </a>
-        </div>
-        <div class="text-center mt-2">
-          <a
-            type="button"
-            class="btn btn-warning mx-auto"
-            href="assets/pgp/key.txt"
-            >PGP
-            <fa-icon [icon]="['fas', 'key']"></fa-icon>
-          </a>
-        </div>
-        <div class="text-center mt-2">
-          <a
-            type="button"
-            class="btn btn-info mx-auto"
-            href="mailto:mail@sambaumohl.me"
-            >Email
-            <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-          </a>
-        </div>
-        <div class="text-center mt-2">
-          <a
-            type="button"
-            class="btn btn-primary mx-auto"
-            href="https://www.linkedin.com/in/sam-baumohl09"
-            >Linkedin
-            <fa-icon [icon]="['fab', 'linkedin']"></fa-icon>
+            class="mx-auto"
+            target="_blank"
+            rel="noopener"
+          >
+            <fa-icon [icon]="link.icon" size="2x"></fa-icon>
           </a>
         </div>
       </div>
@@ -53,9 +27,9 @@
   </div>
 
   <div class="pb-4 mt-2 container-fluid section" id="skills">
-    <h1 class="text-center py-4">Skills</h1>
-    <div class="row py-3">
-      <div class="col pt-2 skill px-md-4" *ngFor="let skill of skills">
+    <h1 class="text-center pt-5 pb-1">Skills</h1>
+    <div class="row">
+      <div class="col pt-2 skill px-md-5" *ngFor="let skill of skills">
         <fa-icon
           [icon]="skill.icon"
           size="6x"
@@ -69,28 +43,26 @@
     </div>
   </div>
 
-  <div class="pb-4 mt-3 parallax container-fluid section" id="projects">
-    <h1 class="text-center py-5 text-light">Projects</h1>
-    <div
-      class="card border border-dark bg-dark"
-      *ngFor="let project of resumeProjects"
-    >
-      <div class="card-body ml-4">
-        <h5 class="card-title">{{ project.title }}</h5>
-        <p class="card-text">
-          {{ project.description }}
-        </p>
-        <a class="btn btn-success" [href]="project.sourceUrl"
-          >Github
-          <fa-icon [icon]="['fab', 'github']"></fa-icon>
-        </a>
-        <a
-          *ngIf="project.projectUrl !== undefined"
-          [href]="project.projectUrl"
-          class="btn btn-primary ml-2"
-          >Go There
-          <fa-icon [icon]="['fas', 'arrow-right']"></fa-icon>
-        </a>
+  <div class="pb-4 mt-3 container-fluid section" id="projects">
+    <h1 class="text-center pt-5 pb-1 text-light">Projects</h1>
+    <div class="projects">
+      <div *ngFor="let project of resumeProjects">
+        <div class="ml-4">
+          <h5>{{ project.title }}</h5>
+          <p>
+            {{ project.description }}
+          </p>
+          <a [href]="project.sourceUrl">
+            <fa-icon [icon]="['fab', 'github']" size="2x"></fa-icon>
+          </a>
+          <a
+            *ngIf="project.projectUrl !== undefined"
+            [href]="project.projectUrl"
+            class="ml-4"
+          >
+            <fa-icon [icon]="['fas', 'arrow-right']" size="2x"></fa-icon>
+          </a>
+        </div>
       </div>
     </div>
   </div>
