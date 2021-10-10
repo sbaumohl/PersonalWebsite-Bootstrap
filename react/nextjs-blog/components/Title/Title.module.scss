@@ -47,6 +47,8 @@
 .line {
   color: rgba(255, 255, 255, 0.92);
   background-color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+  opacity: 100%;
 }
 
 .section {
@@ -54,4 +56,36 @@
   @media only screen and (min-width: 768px) {
     max-width: 62%;
   }
+  h1 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+.skillParent {
+  display: flex;
+  flex-flow: row wrap;
+  .skill {
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    @media only screen and (min-width: 768px) {
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+    }
+  }
+
+  .faIcon {
+    box-sizing: border-box;
+    stroke: "rgba(255, 255, 255, 0.92)";
+    color: "rgba(255, 255, 255, 0.92)";
+  }
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

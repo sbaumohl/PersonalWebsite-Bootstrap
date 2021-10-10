@@ -33,7 +33,7 @@ interface Contact {
   tooltip: string;
 }
 
-export const skills: Skill[] = [
+export const skillList: Skill[] = [
   {
     icon: faHtml5,
     name: "HTML",
@@ -75,7 +75,7 @@ export const skills: Skill[] = [
   },
 ];
 
-export const resumeProjects: Project[] = [
+export const projectList: Project[] = [
   {
     title: "MyMICDS.net",
     description: "An all-in-one platform for MICDS student life.",
@@ -89,7 +89,7 @@ export const resumeProjects: Project[] = [
   },
 ];
 
-export const headerLinks: Contact[] = [
+export const linksList: Contact[] = [
   {
     icon: faGithub,
     link: "https://github.com/MeMeBigProgrammer",
