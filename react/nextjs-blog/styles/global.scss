@@ -1,0 +1,36 @@
+html,
+body {
+  background-color: #18191a;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+  div {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #18191a;
+  }
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  font-weight: 500;
+}
+
+.canvas {
+  height: 100%;
+  width: 100%;
+}

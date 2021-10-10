@@ -1,0 +1,57 @@
+.nameHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 97%;
+  min-height: 97%;
+  @media only screen and (min-width: 768px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  box-sizing: border-box;
+}
+
+.headerChild {
+  display: block;
+  @media only screen and (min-width: 768px) {
+    max-width: 62%;
+  }
+  margin: auto;
+  box-sizing: border-box;
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  h1,
+  h4 {
+    margin: 0.25rem;
+  }
+}
+
+.siteLinksGroup {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.line {
+  color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+.section {
+  margin: auto;
+  @media only screen and (min-width: 768px) {
+    max-width: 62%;
+  }
+}
