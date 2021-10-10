@@ -13,7 +13,6 @@ import {
   faGithub,
   faLinkedin,
   faInstagram,
-  IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
 
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
