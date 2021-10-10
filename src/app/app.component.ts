@@ -5,7 +5,6 @@ import {
   faHtml5,
   faCss3Alt,
   faJava,
-  faUbuntu,
   faPython,
   faJs,
   faAngular,
@@ -14,6 +13,7 @@ import {
   faGithub,
   faLinkedin,
   faInstagram,
+  IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
 
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -48,8 +48,9 @@ export class AppComponent {
       name: "Python",
     },
     {
-      icon: faUbuntu,
+      icon: "devicon-linux-plain",
       name: "Linux",
+      isDevicon: true,
     },
     {
       icon: faNodeJs,
@@ -60,6 +61,11 @@ export class AppComponent {
       name: "Angular",
     },
     { icon: faReact, name: "React" },
+    {
+      icon: "devicon-cplusplus-plain",
+      name: "C++",
+      isDevicon: true,
+    },
   ];
 
   resumeProjects = [
