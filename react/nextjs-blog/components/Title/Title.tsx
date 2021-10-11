@@ -1,4 +1,6 @@
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { linksList, projectList, skillList } from "../../lib/resume";
@@ -42,7 +44,30 @@ for (const skill of skillList) {
 
 const resumeProjects = [];
 for (const project of projectList) {
-  resumeProjects.push(<div></div>);
+  resumeProjects.push(
+    <div>
+      <div>
+        <h5 style={{ textAlign: "left" }}>
+          <strong>{project.title}</strong>
+        </h5>
+        <p>{project.description}</p>
+        <a href={project.sourceUrl}>
+          <FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon>
+        </a>
+        {project.projectUrl !== undefined ? (
+          <a href={project.projectUrl}>
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              size="2x"
+              style={{ marginLeft: "10px" }}
+            ></FontAwesomeIcon>
+          </a>
+        ) : (
+          <></>
+        )}
+      </div>
+    </div>
+  );
 }
 export default class TitleHeader extends React.Component {
   componentDidMount() {
@@ -73,7 +98,7 @@ export default class TitleHeader extends React.Component {
         <div className={styles.section}>
           <hr className={styles.line} />
           <h1>Projects</h1>
-          <div className={styles.projects}></div>
+          <div className={styles.projects}>{resumeProjects}</div>
         </div>
       </>
     );
