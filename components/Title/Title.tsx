@@ -16,6 +16,7 @@ for (const link of linksList) {
         target="_blank"
         rel="noopener"
         key={link.link}
+        className={styles.link}
       >
         <FontAwesomeIcon icon={link.icon} size="2x"></FontAwesomeIcon>
       </a>
@@ -51,11 +52,11 @@ for (const project of projectList) {
           <strong>{project.title}</strong>
         </h5>
         <p>{project.description}</p>
-        <a href={project.sourceUrl}>
+        <a href={project.sourceUrl} className={styles.link}>
           <FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon>
         </a>
         {project.projectUrl !== undefined ? (
-          <a href={project.projectUrl}>
+          <a href={project.projectUrl} className={styles.link}>
             <FontAwesomeIcon
               icon={faArrowRight}
               size="2x"
