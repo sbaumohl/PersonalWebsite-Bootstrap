@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily : {
-        intelonemono: ['"Intel One Mono"', 'mono']
+        intelonemono: ['"Intel One Mono"', 'mono'],
+        raleway: ['"Raleway"', 'sans-serif']
       }
     },
   },
