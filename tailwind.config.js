@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       fontFamily : {
         raleway: ['"Raleway Variable"', 'sans-serif']
+      },
+      spacing: {
+        '132': '35.25rem',
       }
     },
     colors: {
