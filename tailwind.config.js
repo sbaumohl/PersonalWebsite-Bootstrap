@@ -7,13 +7,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily : {
-        intelonemono: ['"Intel One Mono"', 'mono'],
-        raleway: ['"Raleway"', 'sans-serif']
+        raleway: ['"Raleway Variable"', 'sans-serif']
       }
     },
+    colors: {
+      oxford: '#0f172a',
+      pacific: '#23B5D3',
+      celadon: '#a1e8af'
+    }
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
   ],
+  darkMode: 'class'
 };

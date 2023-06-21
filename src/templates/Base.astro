@@ -1,7 +1,6 @@
 ---
 import '../styles/main.css';
-import '@fontsource/raleway'
-import '@fontsource/lato'
+import '@fontsource-variable/raleway'
 import { AppConfig } from '@/utils/AppConfig';
 
 export interface Props {
@@ -16,7 +15,7 @@ const {
 } = Astro.props as Props;
 ---
 
-<html lang='en' class="h-full min-h-full">
+<html lang='en' class="h-full min-h-full dark">
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -27,7 +26,7 @@ const {
     <link rel='alternate' type='application/rss+xml' href='/rss.xml' />
     <link rel='icon' type='image/x-icon' href='/favicon.ico' />
   </head>
-  <body class='font-lato bg-white text-black h-full min-h-full'>
+  <body class='font-raleway bg-oxford h-full min-h-full'>
     <slot></slot>
   </body>
 </html>
