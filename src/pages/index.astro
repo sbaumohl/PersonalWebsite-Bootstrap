@@ -1,25 +1,61 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import BaseBody from "../components/BaseBody.astro";
 import { Icon } from "astro-icon";
+import "@fontsource-variable/playfair-display";
+import Footer from "../components/Footer.astro"
 
-const links = new Map([
-	["Github", "github"],
-	["Email", "mail"],
-	["Instagram", "instagram"],
-	["LinkedIn", "linkedin"],
-	["PGP Key", "key"],
-]);
+const links = [
+	{
+		label: "Github",
+		link: "https://github.com/sbaumohl",
+		icon: "github",
+	},
+	{
+		label: "Email",
+		icon: "mail",
+		link: "mailto:mail@sambaumohl.me",
+	},
+	// {
+	// 	label: "Instagram",
+	// 	link: "https://www.instagram.com/sam_b2327/",
+	// 	icon: "instagram",
+	// },
+	{
+		label: "LinkedIn",
+		icon: "linkedin",
+		link: "https://www.linkedin.com/in/sam-baumohl09/",
+	},
+	// {
+	// 	label: "PGP",
+	// 	icon: "key",
+	// 	link: "",
+	// },
+];
 
 const skills = new Map([
 	["Frameworks", ["Angular", "React.js", "Astro", "NodeJS"]],
 	["Languages", ["Java", "Python", "Javascript", "Typescript", "HTML", "CSS"]],
-	["OtherTools", ["AWS", "Docker", "Git", "Linux", "PostgreSQL", "SQL"]],
+	["Other Tools", ["AWS", "Docker", "Git", "Linux", "PostgreSQL", "SQL"]],
 ]);
-const skillBoxStyle = "grow border border-black rounded-md";
+const introUnderlineStyle =
+	"underline underline-offset-8 decoration-4 decoration-accent";
+
+const projects = [
+	{
+		title: "MyMICDS.net",
+		description:
+			"An all-in-one platform for MICDS student life built with Angular, Express, MongoDB, and NodeJS.",
+		github: "https://github.com/MyMICDS/",
+		link: "https://mymicds.net/",
+	},
+	{
+		title: "BYO Style-Based GAN",
+		description:
+			"A blackbox implementation of NVIDIA's StyleGAN (Style-Based Generative Adversarial Neural Network) using PyTorch and Python.",
+		github: "https://github.com/sbaumohl/BYO-GAN",
+	},
+];
 ---
 
 <!doctype html>
@@ -35,19 +71,28 @@ const skillBoxStyle = "grow border border-black rounded-md";
 			<div class="h-100 border rounded-md border-black">
 				<div class="py-24 px-20">
 					<h1 class="text-9xl font-semibold text-black">Samuel Baumohl</h1>
-					<p class="text-lg">
-						I'm a software developer from Saint Louis, Missouri. I'm a Computer
-						Sciences, Legal Studies, and L&S Honors Student at the University of
-						Wisconsin Madison.
+					<p class="text-lg mt-4">
+						Saint Louis, Missouri born and raised, I study <span
+							class={introUnderlineStyle}>Computer Sciences</span
+						> and <span class={introUnderlineStyle}>Legal Studies</span> at the <span
+							class="underline underline-offset-8 decoration-4 decoration-accent"
+							>University of Wisconsin-Madison</span
+						>. I'm passionate about Software Development, Machine Learning, and
+						Technology Policy.
 					</p>
 				</div>
-				<div>
+				<div class="flex">
 					{
-						Array.from(links.entries()).map(([key, value]) => (
-							<button class="first:ml-20 border-l-0 first:border-l p-2 border-t border-x border-black text-justify hover:underline">
-								<Icon name={value} class="w-5 float-left mr-1" />
-								{key}
-							</button>
+						links.map((val) => (
+							<a
+								class="first:ml-20 border-l-0 first:border-l p-2 border-t border-x border-black hover:underline"
+								target="_blank"
+								rel="noopener noreferrer"
+								href={val.link}
+							>
+								<Icon name={val.icon} class="w-5 mr-1 float-left" />
+								{val.label}
+							</a>
 						))
 					}
 				</div>
@@ -59,7 +104,7 @@ const skillBoxStyle = "grow border border-black rounded-md";
 			<div class="flex flex-row md:gap-40 gap-4 py-24 px-48 text-2xl">
 				{
 					Array.from(skills.entries()).map(([key, value]) => (
-						<div class={skillBoxStyle}>
+						<div class="grow">
 							<h2 class="text-4xl mb-3">{key}</h2>
 							<ul>
 								{value.map((d) => (
@@ -72,44 +117,46 @@ const skillBoxStyle = "grow border border-black rounded-md";
 			</div>
 		</div>
 
-		<div class="p-5 font-semibold text-center">
-			<h1 class="text-7xl">My Projects</h1>
-			<div class="flex flex-row md:gap-40 gap-4 py-24 px-48 text-2xl">
+		<div class="p-5">
+			<h1 class="text-7xl text-center">My Projects</h1>
+			<div class="flex flex-row md:gap-40 gap-4 py-24 px-48">
 				{
-					Array.from(skills.entries()).map(([key, value]) => (
-						<div class={skillBoxStyle}>
-							<h2 class="text-4xl mb-3">{key}</h2>
-							<ul>
-								{value.map((d) => (
-									<li>{d}</li>
-								))}
-							</ul>
+					projects.map((val) => (
+						<div class="grow border border-black rounded-md flex-1 basis-0 p-4">
+							<h2 class="text-4xl mb-3">{val.title}</h2>
+							<p class="text-left mb-3">{val.description}</p>
+							<div class="flex flex-row">
+								<a
+									href={val.github}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:underline mr-2"
+								>
+									<Icon name="github" class="w-5 mr-1 float-left" />
+									Code
+								</a>
+								{val.link && (
+									<>{" | "}</>
+									<a
+										id="myLink"
+										href={val.link}
+										target="_blank"
+										class="underline ml-2"
+									>
+										Visit
+									</a>
+								)}
+							</div>
 						</div>
 					))
 				}
 			</div>
 		</div>
-		<style>
-			.transparent {
-				background-color: rgba(170, 170, 170, 0.22);
-			}
-
-			.outer-spin-color {
-				background-color: linear-gradient(
-					/* -45deg, */
-					rgba(255, 0, 0, 1) 0%,
-					rgba(255, 154, 0, 1) 10%,
-					rgba(208, 222, 33, 1) 20%,
-					rgba(79, 220, 74, 1) 30%,
-					rgba(63, 218, 216, 1) 40%,
-					rgba(47, 201, 226, 1) 50%,
-					rgba(28, 127, 238, 1) 60%,
-					rgba(95, 21, 242, 1) 70%,
-					rgba(186, 12, 248, 1) 80%,
-					rgba(251, 7, 217, 1) 90%,
-					rgba(255, 0, 0, 1) 100%
-				);
-			}
-		</style>
+		<Footer/>
 	</body>
 </html>
+<style>
+	.transparent {
+		background-color: rgba(170, 170, 170, 0.22);
+	}
+</style>

@@ -1,4 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
 	content: [
 		"./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}",
@@ -7,8 +9,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				raleway: ['"Raleway Variable"', "sans-serif"],
-			},
+				serif: ['Playfair Display Variable', "InterVariable", "Inter", ...defaultTheme.fontFamily.serif],
+			  },
 			spacing: {
 				132: "35.25rem",
 			},
