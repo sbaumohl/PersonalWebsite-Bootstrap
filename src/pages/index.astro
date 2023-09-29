@@ -4,6 +4,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Icon } from "astro-icon";
 import "@fontsource-variable/playfair-display";
 import Footer from "../components/Footer.astro"
+import Header from "../components/Header.astro"
 
 const links = [
 	{
@@ -67,6 +68,7 @@ const projects = [
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body class="font-thin font-serif">
+		<Header/>
 		<div class="p-5 text-text">
 			<div class="h-100 border rounded-md border-black">
 				<div class="sm:py-24 py-6 sm:px-20 px-4">
