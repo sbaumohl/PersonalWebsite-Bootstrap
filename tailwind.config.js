@@ -12,19 +12,15 @@ module.exports = {
 			spacing: {
 				132: "35.25rem",
 			},
-			gradientColorStops: (theme) => ({
-				primary: "#FF8C00",
-				secondary: "#FFA500",
-				danger: "#FFD700",
-			}),
+			colors: {
+				text: "#251e0e",
+				background: "#f8f5ed",
+				primary: "#133695",
+				secondary: "#f6e5b7",
+				accent: "#1a48c7",
+			},
 		},
-		colors: {
-			text: "#fae6e6",
-			background: "#080202",
-			primary: "#26bab5",
-			secondary: "#06131e",
-			accent: "#c5050c",
-		},
+
 	},
 	plugins: [
 		require("@tailwindcss/aspect-ratio"),
