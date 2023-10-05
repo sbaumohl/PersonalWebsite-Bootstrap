@@ -17,6 +17,7 @@ module.exports = {
 				primary: "#133695",
 				secondary: "#f6e5b7",
 				accent: "#1a48c7",
+				paperblue: "#f1f5f8"
 			},
 		},
 

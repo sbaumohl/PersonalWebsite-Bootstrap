@@ -62,7 +62,7 @@ const projects = [
 <!doctype html>
 <html
 	lang="en"
-	class="bg-gradient-to-tl from-primary from-1% to-background to-75%"
+	class="bg-paperblue"
 >
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -72,7 +72,7 @@ const projects = [
 		<div class="p-5 text-text">
 			<div class="h-100 border rounded-md border-black">
 				<div class="sm:py-24 py-6 sm:px-20 px-4">
-					<h1 class="sm:text-9xl text-7xl font-semibold text-black">Samuel Baumohl</h1>
+					<h1 class="sm:text-9xl text-7xl font-semibold text-black" id="name"></h1>
 					<p class="text-lg mt-4">
 						Saint Louis, Missouri born and raised, I study <span
 							class={introUnderlineStyle}>Computer Sciences</span
@@ -162,3 +162,24 @@ const projects = [
 		background-color: rgba(170, 170, 170, 0.22);
 	}
 </style>
+<script>
+	var nameElement = document.getElementById("name");
+	let i = 0;
+	let txt = "Samuel Baumohl";
+
+	while (i < txt.length && nameElement) {
+		nameElement.innerHTML = nameElement.innerHTML.slice(0, nameElement.innerHTML.length - 2) + txt.charAt(i) + ' |';
+		i++;
+		await new Promise(r => setTimeout(r, 80));
+	}
+	nameElement.innerHTML = nameElement.innerHTML.slice(0, nameElement.innerHTML.length - 1)
+
+	for (let j = 0; j < 10 && nameElement; j ++) {
+		await new Promise(r => setTimeout(r, 1000));
+		nameElement.innerHTML = nameElement.innerHTML.slice(0, nameElement.innerHTML.length - 1)
+		await new Promise(r => setTimeout(r, 1000));
+		nameElement.innerHTML += '.'
+
+	}
+
+</script>
