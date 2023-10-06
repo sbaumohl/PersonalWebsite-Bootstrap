@@ -9,7 +9,12 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				serif: ['Playfair Display Variable', "InterVariable", "Inter", ...defaultTheme.fontFamily.serif],
+				serif: [
+					"Playfair Display Variable",
+					"InterVariable",
+					"Inter",
+					...defaultTheme.fontFamily.serif,
+				],
 			},
 			colors: {
 				text: "#251e0e",
@@ -17,10 +22,15 @@ module.exports = {
 				primary: "#133695",
 				secondary: "#f6e5b7",
 				accent: "#1a48c7",
-				paperblue: "#f1f5f8"
+				paperblue: "#f1f5f8",
+			},
+			backgroundImage: {
+				"zona": "url('arizona.jpeg')",
+				"moher": "url('/moher.jpg')",
+				"foss": "url('/colorful.jpg')",
+				"magic": "url('/blue_u.jpg')"
 			},
 		},
-
 	},
 	plugins: [
 		require("@tailwindcss/aspect-ratio"),
