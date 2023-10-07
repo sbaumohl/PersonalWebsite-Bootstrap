@@ -5,6 +5,8 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import "@fontsource-variable/roboto-mono";
+import "@fontsource-variable/manrope";
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -12,11 +14,11 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gradient-to-tl from-background from-15% to-primary to-75%">
+<html lang="en" class="min-h-full h-100 subpixel-antialiased text-text">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body class="font-mono">
 		<Header />
 		<main>
 			<section>

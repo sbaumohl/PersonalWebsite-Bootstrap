@@ -9,12 +9,6 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				serif: [
-					"Playfair Display Variable",
-					"InterVariable",
-					"Inter",
-					...defaultTheme.fontFamily.serif,
-				],
 				sans: [
 					"Manrope Variable",
 					...defaultTheme.fontFamily.sans
@@ -25,18 +19,11 @@ module.exports = {
 				]
 			},
 			colors: {
-				text: "#251e0e",
-				background: "#f8f5ed",
-				primary: "#133695",
-				secondary: "#f6e5b7",
-				accent: "#1a48c7",
-				paperblue: "#f1f5f8",
+				text: "#f9f9f9",
+				background: "#090909",
 			},
 			backgroundImage: {
-				"zona": "url('arizona.jpeg')",
-				"moher": "url('/moher.jpg')",
-				"foss": "url('/foss.jpg')",
-				"magic": "url('/blue_u.jpg')"
+				"zona": "url('arizona.jpeg')"
 			},
 		},
 	},

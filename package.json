@@ -1,7 +1,7 @@
 {
-  "name": "dangerous-doppler",
+  "name": "sbaumohlpersonalwebsite",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -14,7 +14,6 @@
     "@astrojs/sitemap": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
     "@fontsource-variable/manrope": "^5.0.14",
-    "@fontsource-variable/playfair-display": "^5.0.13",
     "@fontsource-variable/roboto-mono": "^5.0.13",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.10",
