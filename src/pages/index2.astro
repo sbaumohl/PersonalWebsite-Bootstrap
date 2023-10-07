@@ -3,6 +3,8 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Icon } from "astro-icon";
 import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/roboto-mono";
+import "@fontsource-variable/manrope"
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
@@ -56,44 +58,42 @@ const projects = [
 			"A blackbox implementation of NVIDIA's StyleGAN (Style-Based Generative Adversarial Neural Network) using PyTorch and Python.",
 		github: "https://github.com/sbaumohl/BYO-GAN",
 	},
-    {
-        title: "This Website™",
-        description: "Built with Astro, Typescript, and Tailwindcss, and populated using my own images."
-    }
+	{
+		title: "This Website™",
+		description:
+			"Built with Astro, Typescript, and Tailwindcss, and populated using my own images.",
+	},
 ];
 ---
 
 <!doctype html>
-<html lang="en" class="min-h-full h-100">
+<html lang="en" class="min-h-full h-100 subpixel-antialiased">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="font-thin font-sans p-8">
-		<div class="h-screen bg-fixed bg-zona bg-cover rounded-lg">
-			<Header />
-			<div class="h-screen flex flex-row justify-center select-none">
-				<h1
-					class="sm:text-9xl text-7xl font-semibold text-black self-center mix-blend-overlay hover:mix-blend-difference"
-					id="name"
+	<body class="font-thin font-mono bg-black md:px-20 px-4 md:pt-4">
+		<div class="hero-header text-2xl overflow-hidden flex flex-col">
+			<h1 class="absolute inset-y-1/2 md:inset-x-1/4 inset-x-4 text-white font-sans select-none md:text-9xl text-7xl text-center p-auto font-bold">
+				Sam Baumohl
+			</h1>
+
+			<div class="h-screen max-h-screen break-words">
+				<p
+					id="hero-text"
+					class="font-mono text-gray-200 select-none tracking-tighter"
 				>
-					Sam Baumohl
-				</h1>
+				</p>
 			</div>
-			<div class="flex">
-				{
-					links.map((val) => (
-						<a
-							class="first:ml-20 border-l-0 first:border-l p-2 border-t border-x border-black hover:underline"
-							target="_blank"
-							rel="noopener noreferrer"
-							href={val.link}
-						>
-							<Icon name={val.icon} class="w-5 mr-1 float-left" />
-							{val.label}
-						</a>
-					))
-				}
-			</div>
+		</div>
+		<div class="my-8 text-white">
+			<p class="text-lg mt-4">
+				Saint Louis, Missouri born and raised, I study <span
+					class={introUnderlineStyle}>Computer Sciences</span
+				> and <span class={introUnderlineStyle}>Legal Studies</span> at the <span
+					class={introUnderlineStyle}>University of Wisconsin-Madison</span
+				>. I'm passionate about Software Development, Machine Learning, and
+				Technology Policy.
+			</p>
 		</div>
 		<div class="my-5 text-center transparent">
 			<h1 class="text-7xl">My Skills</h1>
@@ -102,7 +102,7 @@ const projects = [
 			>
 				{
 					Array.from(skills.entries()).map(([key, value]) => (
-						<div class="grow">
+						<div class="grow rounded-lg bg-primary mx-20 p-4 hover:scale-125 hover:shadow-2xl ease-in-out duration-150">
 							<h2 class="text-4xl mb-3">{key}</h2>
 							<ul>
 								{value.map((d) => (
@@ -114,46 +114,41 @@ const projects = [
 				}
 			</div>
 		</div>
-
-        <div class="p-5 bg-foss bg-fixed bg-cover rounded-md h-screen text-white mix-blend-difference">
-			<h1 class="text-7xl text-center">My Projects</h1>
-			<div class="flex md:flex-row flex-col lg:gap-15 gap-4 sm:py-24 py-6 sm:px-48 px-4">
-				{
-					projects.map((val) => (
-						<div class="grow flex-1 basis-0 p-4">
-							<h2 class="text-4xl mb-3">{val.title}</h2>
-							<p class="text-left mb-3">{val.description}</p>
-							<div class="flex flex-row">
-								<a
-									href={val.github}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="hover:underline mr-2"
-								>
-									<Icon name="github" class="w-5 mr-1 float-left" />
-									Code
-								</a>
-								{val.link && (
-									<>{" | "}</>
-									<a
-										id="myLink"
-										href={val.link}
-										target="_blank"
-										class="underline ml-2"
-									>
-										Visit
-									</a>
-								)}
-							</div>
-						</div>
-					))
-				}
-			</div>
-		</div>
 		<style>
 			.transparent {
 				background-color: rgba(170, 170, 170, 0.22);
 			}
+
+			.animation-fade {
+				animation-name: fadein;
+				animation-duration: 1.5s;
+			}
+
+			@keyframes fadein {
+				from {
+					transform: translateY(-150%);
+					opacity: 20%;
+				}
+
+				to {
+					offset-position: 0cm 0cm;
+					opacity: 100%;
+				}
+			}
 		</style>
+		<script>
+			function refreshNumbers() {
+				let c = Array.from({ length: 5000 }, (_, e) =>
+					Math.random() >= 0.5 ? 1 : 0,
+				).join("");
+				document.getElementById("hero-text").innerHTML = c;
+				console.log(
+					document.getElementById("hero-text").getBoundingClientRect(),
+				);
+				setTimeout(refreshNumbers, 350);
+			}
+
+			refreshNumbers();
+		</script>
 	</body>
 </html>

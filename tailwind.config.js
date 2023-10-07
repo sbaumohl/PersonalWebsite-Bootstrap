@@ -15,6 +15,14 @@ module.exports = {
 					"Inter",
 					...defaultTheme.fontFamily.serif,
 				],
+				sans: [
+					"Manrope Variable",
+					...defaultTheme.fontFamily.sans
+				],
+				mono: [
+					'Roboto Mono Variable',
+					...defaultTheme.fontFamily.sans
+				]
 			},
 			colors: {
 				text: "#251e0e",
@@ -27,7 +35,7 @@ module.exports = {
 			backgroundImage: {
 				"zona": "url('arizona.jpeg')",
 				"moher": "url('/moher.jpg')",
-				"foss": "url('/colorful.jpg')",
+				"foss": "url('/foss.jpg')",
 				"magic": "url('/blue_u.jpg')"
 			},
 		},

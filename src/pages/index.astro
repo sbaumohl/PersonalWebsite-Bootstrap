@@ -3,8 +3,8 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Icon } from "astro-icon";
 import "@fontsource-variable/playfair-display";
-import Footer from "../components/Footer.astro"
-import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 const links = [
 	{
@@ -56,57 +56,65 @@ const projects = [
 			"A blackbox implementation of NVIDIA's StyleGAN (Style-Based Generative Adversarial Neural Network) using PyTorch and Python.",
 		github: "https://github.com/sbaumohl/BYO-GAN",
 	},
+    {
+        title: "This Website™",
+        description: "Built with Astro, Typescript, and Tailwindcss, and populated using my own images."
+    }
 ];
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	class="bg-paperblue"
->
+<html lang="en" class="min-h-full h-100 subpixel-antialiased">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="font-thin font-serif">
-		<Header/>
-		<div class="p-5 text-text">
-			<div class="h-100 border rounded-md border-black shadow-2xl">
-				<div class="sm:py-24 py-6 sm:px-20 px-4">
-					<h1 class="sm:text-9xl text-7xl font-semibold text-black" id="name"></h1>
-					<p class="text-lg mt-4">
-						Saint Louis, Missouri born and raised, I study <span
-							class={introUnderlineStyle}>Computer Sciences</span
-						> and <span class={introUnderlineStyle}>Legal Studies</span> at the <span
-						class={introUnderlineStyle}
-							>University of Wisconsin-Madison</span
-						>. I'm passionate about Software Development, Machine Learning, and
-						Technology Policy.
-					</p>
-				</div>
-				<div class="flex">
-					{
-						links.map((val) => (
-							<a
-								class="first:ml-20 border-l-0 first:border-l p-2 border-t border-x border-black hover:underline"
-								target="_blank"
-								rel="noopener noreferrer"
-								href={val.link}
-							>
-								<Icon name={val.icon} class="w-5 mr-1 float-left" />
-								{val.label}
-							</a>
-						))
-					}
-				</div>
+	<body class="font-thin font-sans p-4">
+		<div class="h-screen bg-fixed bg-zona bg-cover rounded-lg overflow-hidden">
+			<Header />
+			<div class="h-screen flex flex-row justify-center select-none">
+				<h1
+					class="sm:text-9xl text-7xl font-semibold text-black self-center mix-blend-overlay animation-fade fixed text-clip"
+					id="name"
+				>
+					Sam Baumohl
+				</h1>
 			</div>
+			<div class="flex">
+				{
+					links.map((val) => (
+						<a
+							class="first:ml-20 border-l-0 first:border-l p-2 border-t border-x border-black hover:underline"
+							target="_blank"
+							rel="noopener noreferrer"
+							href={val.link}
+						>
+							{val.label}
+						</a>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="my-8 w-4/5 h-screen">
+			<p class="text-lg mt-4">
+				Saint Louis, Missouri born and raised, I study <span
+					class={introUnderlineStyle}>Computer Sciences</span
+				> and <span class={introUnderlineStyle}>Legal Studies</span> at the <span
+				class={introUnderlineStyle}
+					>University of Wisconsin-Madison</span
+				>. I'm passionate about Software Development, Machine Learning, and
+				Technology Policy.
+			</p>
 		</div>
 
 		<div class="my-5 text-center transparent">
 			<h1 class="text-7xl">My Skills</h1>
-			<div class="flex md:flex-row flex-col md:gap-40 gap-4 sm:py-24 py-6 sm:px-20 px-4 text-2xl">
+			<div
+				class="flex md:flex-row flex-col md:gap-40 gap-4 sm:py-24 py-6 sm:px-20 px-4 text-2xl"
+			>
 				{
 					Array.from(skills.entries()).map(([key, value]) => (
-						<div class="grow">
+						<div class="grow rounded-lg bg-primary mx-20 p-4 hover:scale-125 hover:shadow-2xl ease-in-out duration-150">
 							<h2 class="text-4xl mb-3">{key}</h2>
 							<ul>
 								{value.map((d) => (
@@ -119,12 +127,12 @@ const projects = [
 			</div>
 		</div>
 
-		<div class="p-5">
+        <div class="p-5 bg-foss bg-fixed bg-cover rounded-md h-screen text-black mix-blend-hue saturate-200">
 			<h1 class="text-7xl text-center">My Projects</h1>
-			<div class="flex md:flex-row flex-col lg:gap-40 gap-4 sm:py-24 py-6 sm:px-48 px-4">
+			<div class="flex md:flex-row flex-col lg:gap-15 gap-4 sm:py-24 py-6 sm:px-48 px-4">
 				{
 					projects.map((val) => (
-						<div class="grow border border-black rounded-md flex-1 basis-0 p-4 shadow-2xl">
+						<div class="grow flex-1 basis-0 p-4">
 							<h2 class="text-4xl mb-3">{val.title}</h2>
 							<p class="text-left mb-3">{val.description}</p>
 							<div class="flex flex-row">
@@ -154,33 +162,27 @@ const projects = [
 				}
 			</div>
 		</div>
-		<Footer/>
+		<style>
+			.transparent {
+				background-color: rgba(170, 170, 170, 0.22);
+			}
+
+			.animation-fade {
+				animation-name: fadein;
+				animation-duration: 1.5s;
+			}
+
+			@keyframes fadein {
+				from {
+					transform: translateY(-150%);
+					opacity: 20%;
+				}
+
+				to {
+					offset-position: 0cm 0cm;
+					opacity: 100%;
+				}
+			}
+		</style>
 	</body>
 </html>
-<style>
-	.transparent {
-		background-color: rgba(170, 170, 170, 0.22);
-	}
-</style>
-<script>
-	var nameElement = document.getElementById("name");
-	let i = 0;
-	let txt = "Samuel Baumohl";
-
-	while (i < txt.length && nameElement) {
-		nameElement.innerHTML = nameElement.innerHTML.slice(0, nameElement.innerHTML.length - 2) + txt.charAt(i) + ' |';
-		i++;
-		await new Promise(r => setTimeout(r, 80));
-	}
-
-	nameElement.innerHTML = nameElement.innerHTML.slice(0, nameElement.innerHTML.length - 1)
-
-	for (let j = 0; j < 10 && nameElement; j ++) {
-		await new Promise(r => setTimeout(r, 600));
-		nameElement.innerHTML = nameElement.innerHTML.slice(0, nameElement.innerHTML.length - 1)
-		await new Promise(r => setTimeout(r, 600));
-		nameElement.innerHTML += '.'
-
-	}
-
-</script>
