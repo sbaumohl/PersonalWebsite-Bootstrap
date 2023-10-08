@@ -4,7 +4,7 @@ import HeaderLink from "./HeaderLink.astro";
 const { href, class: className, isFixed, ...props } = Astro.props;
 ---
 
-<div class:list={[className, "text-text p-4 lg:px-36 md:px-20 bg-background w-screen z-10", {isFixed: isFixed && "fixed"}]} {...props}>
+<div class:list={[className, "text-text p-4 lg:px-36 md:px-20 bg-background w-screen z-10 ", isFixed && "fixed"]} {...props}>
 	<header>
 		<nav>
 			<div class="flex flex-col gap-10 md:flex-row text-3xl">

@@ -6,6 +6,10 @@ import "@fontsource-variable/roboto-mono";
 import "@fontsource-variable/manrope";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+
+function onClick() {
+	console.log("h")
+}
 ---
 
 <!doctype html>
@@ -156,11 +160,11 @@ import Header from "../components/Header.astro";
 		</style>
 		<script async>
 			function refreshNumbers() {
-				let c = Array.from({ length: 5000 }, (_, e) =>
+				let c = Array.from({ length: 2250 }, (_, e) =>
 					Math.random() >= 0.5 ? 1 : 0,
 				).join("");
 				document.getElementById("hero-text").innerHTML = c;
-				setTimeout(refreshNumbers, 350);
+				setTimeout(refreshNumbers, 400);
 			}
 
 			refreshNumbers();
