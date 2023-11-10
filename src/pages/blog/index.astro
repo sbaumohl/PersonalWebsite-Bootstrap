@@ -1,8 +1,6 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import "@fontsource-variable/roboto-mono";
@@ -17,12 +15,12 @@ const posts = (await getCollection("blog")).sort(
 <BasePage>
 	<body>
 		<Header />
-		<main class="md:mt-5">
+		<main class="md:mt-20 mb-48">
 			<section class="w-3/5 mx-auto flex flex-col gap-10">
 				{
 					posts.map((post) => (
 						<a href={`/blog/${post.slug}/`}>
-							<div class="flex flex-row gap-2">
+							<div class="flex flex-row gap-6">
 								<img
 									width={270}
 									height={135}
@@ -30,9 +28,10 @@ const posts = (await getCollection("blog")).sort(
 									alt=""
 								/>
 								<div class="flex flex-col">
-									<h4 class="text-2xl font-semibold">{post.data.title}</h4>
-									<p class="">
-										<FormattedDate date={post.data.pubDate} />
+									<h4 class="font-semibold text-5xl">{post.data.title}</h4>
+									<p class="mt-1">{post.data.description}</p>
+									<p class="mt-4 text-primary">
+										Published <FormattedDate date={post.data.pubDate} />
 									</p>
 								</div>
 							</div>
