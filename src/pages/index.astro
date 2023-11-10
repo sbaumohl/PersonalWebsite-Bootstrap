@@ -13,37 +13,30 @@ function onClick() {
 ---
 
 <!doctype html>
-<html lang="en" class="min-h-full h-100 subpixel-antialiased text-text">
+<html lang="en" class="min-h-full h-100 subpixel-antialiased">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="font-thin font-mono bg-background">
+	<body class="font-thin font-mono">
 		
 		<Header isFixed="true"/>
 
 		<div class="lg:px-36 md:px-20 px-4 md:pt-4">
 
 			<!-- Hero -->
-			<div class="hero-header text-2xl overflow-hidden flex flex-col">
-				<h1 class="z-0 absolute inset-y-1/2 md:inset-x-1/4 inset-x-4 font-sans select-none lg:text-9xl text-7xl text-center p-auto font-bold opacity-90 ">
+			<div class="m-20 text-2xl overflow-hidden flex flex-col">
+				<h1 class="font-sans select-none lg:text-9xl text-7xl text-center font-bold opacity-90 ">
 					Sam Baumohl
 				</h1>
-
-				<div class="h-screen max-h-screen break-words">
-					<p
-						id="hero-text"
-						class="font-mono text-gray-200 select-none tracking-tighter"
-					>
-					</p>
-				</div>
+				<p class="text-xl font-sans font-medium">
+					Saint Louis, Missouri born and raised, I study Computer Sciences and Legal Studies at the University of Wisconsin-Madison. I'm passionate about Software Development, Machine Learning, and
+					Technology Policy.
+				</p>
 			</div>
 
 			<!-- Lower-Third, Links, and Picture -->
 			<div class="lg:w-3/5 md:mx-auto md:my-10 text-justify font-sans font-semibold h-screen min-h-max flex flex-col space-between justify-items-center justify-around">
-				<p class="text-xl">
-					Saint Louis, Missouri born and raised, I study Computer Sciences and Legal Studies at the University of Wisconsin-Madison. I'm passionate about Software Development, Machine Learning, and
-					Technology Policy.
-				</p>
+				<button class="btn">Hello daisyUI</button>  
 				<img src="strauss2.jpg" alt="Portrait" class="aspect-square sm:w-1/2 w-1/3 mx-auto rounded-lg">
 				<div class="flex gap-10 mx-auto text-xl">
 					{
@@ -60,27 +53,6 @@ function onClick() {
 					}
 				</div>
 			</div>
-
-			<!-- Skills -->
-			<!-- <div class="my-5 text-center transparent font-sans">
-				<h1 class="text-7xl text-white">My Skills</h1>
-				<div
-					class="flex md:flex-row flex-col md:gap-40 gap-4 sm:py-24 py-6 sm:px-20 px-4 text-2xl space-between"
-				>
-					{
-						Array.from(skills.entries()).map(([key, value]) => (
-							<div class="grow rounded-lg bg-gray-400 mx-20 p-4 hover:scale-125 hover:shadow-2xl ease-in-out duration-150">
-								<h2 class="text-4xl mb-3">{key}</h2>
-								<ul>
-									{value.map((d) => (
-										<li>{d}</li>
-									))}
-								</ul>
-							</div>
-						))
-					}
-				</div>
-			</div> -->
 
 			<!-- Projects -->
 			<div class="rounded-md text-white transparent">
@@ -127,23 +99,6 @@ function onClick() {
 				background-color: rgba(170, 170, 170, 0.22);
 			}
 
-			/* .animation-fade {
-				animation-name: fadein;
-				animation-duration: 1.5s;
-			}
-
-			@keyframes fadein {
-				from {
-					transform: translateY(-150%);
-					opacity: 20%;
-				}
-
-				to {
-					offset-position: 0cm 0cm;
-					opacity: 100%;
-				}
-			} */
-
 			.fancy-hover {
 				background-image: linear-gradient(#888 0 0);
 				background-repeat: no-repeat;
@@ -159,15 +114,15 @@ function onClick() {
 			}
 		</style>
 		<script async>
-			function refreshNumbers() {
-				let c = Array.from({ length: 2250 }, (_, e) =>
-					Math.random() >= 0.5 ? 1 : 0,
-				).join("");
-				document.getElementById("hero-text").innerHTML = c;
-				setTimeout(refreshNumbers, 400);
-			}
+			// function refreshNumbers() {
+			// 	let c = Array.from({ length: 3250 }, (_, e) =>
+			// 		Math.random() >= 0.5 ? 1 : 0,
+			// 	).join("");
+			// 	document.getElementById("hero-text").innerHTML = c;
+			// 	setTimeout(refreshNumbers, 400);
+			// }
 
-			refreshNumbers();
+			// refreshNumbers();
 		</script>
 	</body>
 </html>

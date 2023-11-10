@@ -17,19 +17,13 @@ module.exports = {
 					'Roboto Mono Variable',
 					...defaultTheme.fontFamily.sans
 				]
-			},
-			colors: {
-				text: "#f9f9f9",
-				background: "#090909",
-			},
-			backgroundImage: {
-				"zona": "url('arizona.jpeg')"
-			},
+			}
 		},
 	},
 	plugins: [
 		require("@tailwindcss/aspect-ratio"),
 		require("@tailwindcss/typography"),
+		require('daisyui')
 	],
 	darkMode: "class",
 };
