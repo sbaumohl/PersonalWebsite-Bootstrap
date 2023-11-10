@@ -25,5 +25,7 @@ module.exports = {
 		require("@tailwindcss/typography"),
 		require('daisyui')
 	],
-	darkMode: "class",
+	daisyui: {
+		themes: ["light", "night", "luxury"],
+	}
 };

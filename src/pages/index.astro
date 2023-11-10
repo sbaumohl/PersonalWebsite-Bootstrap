@@ -1,128 +1,83 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, links, projects } from "../consts";
+import BasePage from "../layouts/BasePage.astro";
+import { links, projects } from "../consts";
 import { Icon } from "astro-icon";
 import "@fontsource-variable/roboto-mono";
 import "@fontsource-variable/manrope";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-
-function onClick() {
-	console.log("h")
-}
 ---
-
-<!doctype html>
-<html lang="en" class="min-h-full h-100 subpixel-antialiased">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="font-thin font-mono">
-		
-		<Header isFixed="true"/>
-
+<BasePage>
+	<body>
+		<Header isFixed/>
 		<div class="lg:px-36 md:px-20 px-4 md:pt-4">
-
 			<!-- Hero -->
-			<div class="m-20 text-2xl overflow-hidden flex flex-col">
-				<h1 class="font-sans select-none lg:text-9xl text-7xl text-center font-bold opacity-90 ">
-					Sam Baumohl
-				</h1>
-				<p class="text-xl font-sans font-medium">
-					Saint Louis, Missouri born and raised, I study Computer Sciences and Legal Studies at the University of Wisconsin-Madison. I'm passionate about Software Development, Machine Learning, and
-					Technology Policy.
-				</p>
-			</div>
-
-			<!-- Lower-Third, Links, and Picture -->
-			<div class="lg:w-3/5 md:mx-auto md:my-10 text-justify font-sans font-semibold h-screen min-h-max flex flex-col space-between justify-items-center justify-around">
-				<button class="btn">Hello daisyUI</button>  
-				<img src="strauss2.jpg" alt="Portrait" class="aspect-square sm:w-1/2 w-1/3 mx-auto rounded-lg">
-				<div class="flex gap-10 mx-auto text-xl">
-					{
-						links.map((val) => (
-							<a
-								class="fancy-hover p-2 px-4"
-								target="_blank"
-								rel="noopener noreferrer"
-								href={val.link}
-							>
-								{val.label}
-							</a>
-						))
-					}
+			<div class="sm:mt-20 text-2xl overflow-hidden flex lg:flex-row-reverse flex-col">
+				<div class="mx-6">
+					<h1 class="mb-2 font-sans select-none xl:text-8xl md:text-7xl text-5xl font-bold">
+						Sam Baumohl
+					</h1>
+					<p class="mb-8 md:text-xl text-lg font-sans font-medium">
+						Saint Louis, Missouri born and raised, I study <span class="text-primary">Computer Sciences</span> and <span class="text-success">Legal Studies</span> at the <span class="text-accent">University of Wisconsin-Madison</span>. I'm passionate about Software Development, Machine Learning, and
+						Technology Policy.
+					</p>
+					<div class="flex justify-around sm:gap-10 mx-auto text-3xl">
+						{
+							links.map((val) => (
+								<a
+									class="fancy-hover p-2 px-4"
+									target="_blank"
+									rel="noopener noreferrer"
+									href={val.link}
+								>
+									{val.label}
+								</a>
+							))
+						}
+					</div>
 				</div>
+				<img src="strauss2.jpg" alt="Portrait" class="max-md:my-10 aspect-square md:w-1/3 w-1/2 mx-auto rounded-lg">
 			</div>
 
-			<!-- Projects -->
-			<div class="rounded-md text-white transparent">
-				<h1 class="text-7xl text-center">My Projects</h1>
-				<div class="flex lg:flex-row flex-col xl:gap-24 gap-4 sm:py-24 py-6 ">
-					{
-						projects.map((val) => (
-							<div class="grow flex-1 basis-0 p-4">
-								<h2 class="text-4xl mb-3">{val.title}</h2>
-								<p class="text-left mb-3">{val.description}</p>
-								<div class="flex flex-row">
+		<!-- Projects -->
+		<div class="md:mt-10">
+			<h1 class="xl:text-8xl text-5xl text-center">My Projects</h1>
+			<div class="flex lg:flex-row flex-col xl:gap-24 gap-4 sm:py-24 py-6 ">
+				{
+					projects.map((val) => (
+						<div class="grow flex-1 basis-0 p-4">
+							<h2 class="text-4xl mb-3">{val.title}</h2>
+							<p class="text-left mb-3">{val.description}</p>
+							<div class="flex flex-row">
+								<a
+									href={val.github}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:underline mr-2"
+								>
+									<Icon name="github" class="w-5 mr-1 float-left" />
+									Code
+								</a>
+								{val.link && (
+									<>{" | "}</>
 									<a
-										href={val.github}
+										id="myLink"
+										href={val.link}
 										target="_blank"
-										rel="noopener noreferrer"
-										class="hover:underline mr-2"
+										class="fancy-hover px-1 ml-2"
 									>
-										<Icon name="github" class="w-5 mr-1 float-left" />
-										Code
+										Visit
 									</a>
-									{val.link && (
-										<>{" | "}</>
-										<a
-											id="myLink"
-											href={val.link}
-											target="_blank"
-											class="fancy-hover px-1 ml-2"
-										>
-											Visit
-										</a>
-									)}
-								</div>
+								)}
 							</div>
-						))
-					}
-				</div>
+						</div>
+					))
+				}
 			</div>
+		</div>
 	</div>
 
 		<!-- Footer -->
 		<Footer havePhotoCredits={true}/>
-		<style>
-			.transparent {
-				background-color: rgba(170, 170, 170, 0.22);
-			}
-
-			.fancy-hover {
-				background-image: linear-gradient(#888 0 0);
-				background-repeat: no-repeat;
-				background-size: 200% .08em;
-  				background-position: 200% 100%;
-				transition: background-size .3s, background-position .3s .3s;
-			}
-
-			.fancy-hover:hover {
-				transition: background-size .3s .3s, background-position .3s;
-				background-size: 200% 100%;
-  				background-position: 100% 100%;
-			}
-		</style>
-		<script async>
-			// function refreshNumbers() {
-			// 	let c = Array.from({ length: 3250 }, (_, e) =>
-			// 		Math.random() >= 0.5 ? 1 : 0,
-			// 	).join("");
-			// 	document.getElementById("hero-text").innerHTML = c;
-			// 	setTimeout(refreshNumbers, 400);
-			// }
-
-			// refreshNumbers();
-		</script>
 	</body>
-</html>
+</BasePage>

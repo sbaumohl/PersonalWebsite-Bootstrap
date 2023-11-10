@@ -1,23 +1,23 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, PGP_KEY } from "../consts";
+import { PGP_KEY } from "../consts";
 
 import "@fontsource-variable/roboto-mono";
 import "@fontsource-variable/manrope";
 import Footer from "../components/Footer.astro";
+import BasePage from "../layouts/BasePage.astro"
 ---
 
-<!doctype html>
-<html lang="en" class="min-h-full h-100 subpixel-antialiased text-text">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="font-thin font-mono bg-background">
+<BasePage>
+	<body class="font-thin">
 		<Header />
-		<div class="prose-code w-3/4 mx-auto">
-			<code set:text={PGP_KEY}></code>
+		
+		<div class="md:w-3/4 p-2 mx-auto">
+			<p class="mt-10 ">Below is my PGP Public Encryption Key. if you want to reach me and want to add an extra layer of security to your message, use this!</p>
+			<div class="prose-code text-primary-content select-all text-primary">
+				<pre><code set:text={PGP_KEY} class="md:text-lg text-xs"/></pre>
+			</div>
 		</div>
 		<Footer />
 	</body>
-</html>
+</BasePage>

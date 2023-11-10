@@ -4,10 +4,10 @@ import HeaderLink from "./HeaderLink.astro";
 const { href, class: className, isFixed, ...props } = Astro.props;
 ---
 
-<div class:list={[className, "text-text p-4 lg:px-36 md:px-20 bg-background w-screen z-10 ", isFixed && "fixed"]} {...props}>
+<div class:list={[className, "px-2 py-5 lg:px-36 md:px-20 bg-base-100 w-screen", isFixed && "md:fixed"]} {...props}>
 	<header>
 		<nav>
-			<div class="flex flex-col gap-10 md:flex-row text-3xl">
+			<div class="flex flex-row max-sm:justify-center gap-10 text-3xl">
 				<HeaderLink class="fancy-hover" href="/">Home</HeaderLink>
 				<HeaderLink class="fancy-hover" href="/blog">Blog</HeaderLink>
 				<HeaderLink class="fancy-hover" href="/pgp">PGP</HeaderLink>
@@ -15,22 +15,3 @@ const { href, class: className, isFixed, ...props } = Astro.props;
 		</nav>
 	</header>
 </div>
-<style>
-	.fancy-hover {
-		background-image: linear-gradient(#888 0 0);
-		background-repeat: no-repeat;
-		background-size: 200% 0.08em;
-		background-position: 200% 100%;
-		transition:
-			background-size 0.3s,
-			background-position 0.3s 0.3s;
-	}
-
-	.fancy-hover:hover {
-		transition:
-			background-size 0.3s 0.3s,
-			background-position 0.3s;
-		background-size: 200% 100%;
-		background-position: 100% 100%;
-	}
-</style>
