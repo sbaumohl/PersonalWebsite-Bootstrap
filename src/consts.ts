@@ -28,7 +28,7 @@ export const projects = [
 	{
 		title: "This Website™",
 		description:
-			"Built with Astro, Typescript, and Tailwindcss.",
+			"Built with Astro, Typescript, tailwindcss, and daisyUI.",
 		github: "https://github.com/sbaumohl/PersonalWebsite-Bootstrap"
 	},
 ];
