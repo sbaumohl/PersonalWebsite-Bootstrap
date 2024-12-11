@@ -9,10 +9,12 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
+				serif: ["'Source Serif 4 Variable'", ...defaultTheme.fontFamily.serif],
 				sans: ["Manrope Variable", ...defaultTheme.fontFamily.sans],
 				mono: ["Roboto Mono Variable", ...defaultTheme.fontFamily.sans],
 			},
-		},
+		}
+
 	},
 	plugins: [
 		require("@tailwindcss/aspect-ratio"),
