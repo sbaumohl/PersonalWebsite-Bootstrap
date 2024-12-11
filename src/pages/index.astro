@@ -7,7 +7,7 @@ import CustomLink from "../components/CustomLink.astro"
 
 <BasePage>
 	<div class="mt-20 block mx-auto justify-center max-w-[700px] text-wrap">
-		<h1 class="text-5xl my-2">Sam Baumohl</h1>
+		<h1 class="text-5xl my-4">Sam Baumohl</h1>
 		<p class="mb-1">
 			I am a student at the <span class="text-accent">University of Wisconsin-Madison</span> studying
 			<span class="text-primary">Computer Sciences</span> and <span class="text-secondary">Mathematics</span>. I'm interested in software
@@ -21,6 +21,20 @@ import CustomLink from "../components/CustomLink.astro"
 			<li>an active member of the&nbsp;<CustomLink href="https://waisi.org/">Wisconsin AI Safety Initiative (WAISI)</CustomLink></li>
 			<li>having fun with&nbsp;<CustomLink href="https://adventofcode.com/">Advent Of Code</CustomLink></li>
 		</ul>
-		<h2 class="text-3xl my-1">Socials</h2>
+		<h2 class="text-3xl my-2">Socials</h2>
+		<div class="flex flex-row items-center justify-center gap-x-2">
+			<button class="btn">
+				<Icon name="linkedin"></Icon>
+				LinkedIn
+			</button>
+			<button class="btn">
+				<Icon name="github"></Icon>
+				Github
+			</button>
+			<button class="btn">
+				<Icon name="mail"></Icon>
+				Email
+			</button>
+		</div>
 	</div>
 </BasePage>
