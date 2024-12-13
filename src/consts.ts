@@ -38,11 +38,6 @@ export const links = [
 		icon: "mail",
 		link: "mailto:sam@baumohl.dev",
 	},
-	// {
-	// 	label: "Instagram",
-	// 	link: "https://www.instagram.com/sam_b2327/",
-	// 	icon: "instagram",
-	// },
 	{
 		label: "LinkedIn",
 		icon: "linkedin",
@@ -52,13 +47,7 @@ export const links = [
 		label: "Leetcode",
 		icon: "leetcode",
 		link: "https://leetcode.com/u/sbaumohl/"
-
 	}
-	// {
-	// 	label: "PGP",
-	// 	icon: "key",
-	// 	link: "",
-	// },
 ];
 
 export const PGP_KEY = `

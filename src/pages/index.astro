@@ -1,40 +1,116 @@
 ---
 import BasePage from "../layouts/BasePage.astro";
-import { links, projects } from "../consts";
 import { Icon } from "astro-icon/components";
-import CustomLink from "../components/CustomLink.astro"
+import CustomLink from "../components/CustomLink.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+);
+
+const subheaderStyles = "text-2xl sm:text-3xl mb-6 mt-3";
+const buttonStyles =
+	"btn btn-link sm:btn-lg normal-case font-normal no-underline text-accent";
 ---
 
 <BasePage>
-	<div class="mt-20 block mx-auto justify-center max-w-[700px] text-wrap">
+	<div
+		class="sm:mt-20 block mx-auto max-w-[700px] text-wrap text-xs sm:text-base"
+	>
 		<h1 class="text-5xl my-4">Sam Baumohl</h1>
 		<p class="mb-1">
-			I am a student at the <span class="text-accent">University of Wisconsin-Madison</span> studying
-			<span class="text-primary">Computer Sciences</span> and <span class="text-secondary">Mathematics</span>. I'm interested in software
-			development, machine learning/AI, and technology policy. I like to
-			read, solve problems, and work on various side projects, some of
-			which I'll post here. Right now, I'm:
+			I am a student at the <span class="text-accent"
+				>University of Wisconsin-Madison</span
+			> studying
+			<span class="text-primary">Computer Sciences</span> and <span
+				class="text-success">Mathematics</span
+			>. I'm interested in software development, machine learning/AI, and
+			technology policy. I like to read, solve problems, and work on
+			various side projects, some of which I'll post here. Right now, I'm:
 		</p>
 		<ul class="ml-1 list-disc list-inside">
-			<li>trying to survive the CS major</li>
-			<li>a Coordinator at Madison's&nbsp;<CustomLink href="https://www.upl.cs.wisc.edu/">Undergraduate Project Lab</CustomLink>
-			<li>an active member of the&nbsp;<CustomLink href="https://waisi.org/">Wisconsin AI Safety Initiative (WAISI)</CustomLink></li>
-			<li>having fun with&nbsp;<CustomLink href="https://adventofcode.com/">Advent Of Code</CustomLink></li>
+			<li>&nbsp;trying to survive the CS major</li>
+			<li>
+				a Coordinator at Madison's&nbsp;<CustomLink
+					href="https://www.upl.cs.wisc.edu/"
+					>Undergraduate Project Lab</CustomLink
+				>
+				<li>
+					an active member of the&nbsp;<CustomLink
+						href="https://waisi.org/"
+						>Wisconsin AI Safety Initiative (WAISI)</CustomLink
+					>
+				</li>
+				<li>
+					having fun with&nbsp;<CustomLink
+						href="https://adventofcode.com/"
+						>Advent Of Code</CustomLink
+					>
+				</li>
+			</li>
 		</ul>
-		<h2 class="text-3xl my-2">Socials</h2>
-		<div class="flex flex-row items-center justify-center gap-x-2">
-			<button class="btn btn-link btn-lg text-neutral-content">
-				<Icon name="linkedin"></Icon>
-				LinkedIn
-			</button>
-			<button class="btn btn-link btn-lg text-neutral-content">
-				<Icon name="github"></Icon>
-				Github
-			</button>
-			<button class="btn btn-link btn-lg text-neutral-content">
-				<Icon name="mail"></Icon>
+		<h2 class={subheaderStyles}>Socials</h2>
+		<div
+			class="flex flex-row items-center justify-center gap-x-2"
+		>
+			<form action="https://www.linkedin.com/in/sam-baumohl09/">
+				<button class={buttonStyles}>
+					<Icon name="linkedin" />
+					LinkedIn
+				</button>
+			</form>
+			<form action="https://github.com/sbaumohl/">
+				<button class={buttonStyles}>
+					<Icon name="github" />
+					Github
+				</button>
+			</form>
+			<button class={buttonStyles} onclick="email_modal.showModal()">
+				<Icon name="mail" />
 				Email
 			</button>
 		</div>
+		<h2 class={subheaderStyles}>Blog Posts</h2>
+		<section class="flex flex-col gap-8 mb-16">
+			{
+				posts.reverse().map((post, _) => (
+					<a href={`/blog/${post.slug}/`}>
+						{/* border-solid border-accent border */}
+						<div class="bg-primary-800 flex flex-col md:flex-row gap-6  p-3 hover:scale-105 duration-100 shadow-2xl">
+							<div class="flex flex-col">
+								<h4 class="font-semibold text-xl">
+									{post.data.title}
+								</h4>
+								<p class="mt-1">{post.data.description}</p>
+								<p class="mt-4">
+									Published{" "}
+									<FormattedDate date={post.data.pubDate} />
+								</p>
+							</div>
+						</div>
+					</a>
+				))
+			}
+		</section>
 	</div>
 </BasePage>
+<dialog id="email_modal" class="modal">
+	<div class="modal-box text-lg">
+		<form method="dialog">
+			<button
+				class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+				>✕</button
+			>
+		</form>
+		<h3 class="text-lg font-bold">Email Address</h3>
+		<p class="py-4">
+			<span class="text-primary">sam</span> (at) <span class="text-info"
+				>baumohl</span
+			> (dot) <span class="text-accent">dev</span>
+		</p>
+	</div>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
+</dialog>

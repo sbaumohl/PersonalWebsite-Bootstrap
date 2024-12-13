@@ -10,7 +10,7 @@ Some friends and I competed in the 2024 UChicago Trading competition and represe
 ## The Competition Format
 The competition was structured into two distinct cases: a Market-Making case and a Portfolio Optimization Case. Among the 36 participating teams, we achieved 12th place in Market-Making and 3rd place in Portfolio Optimization. My primary focus was on the Market-Making case (Case 1). Additionally, DRW hosted a Poker Tournament the night before the competition, where I placed 6th.
 
-### Case 1: Makin' Markets; Makin' Money
+## Makin' Markets; Makin' Money
 
 ![UChicago Trading Competition case 1 Leaderboard Screenshot](/images/chicago_comp_leaderboard.png)
 
@@ -22,7 +22,7 @@ A few members of the trading competition staff developed the trading platform, w
 
 The trading itself consisted of securities and two ETFs (Exchange Traded Funds), each composed of a mix of those securities and a risk-free asset. The price book of each security fluctuated in a [Brownian motion](https://en.wikipedia.org/wiki/Brownian_motion) during each five-minute round. The exchange would cash out any positions held at the end of the round using the settled security price. The risk-free asset is always settled for the same price. The organizers sampled "historical" settlement prices for all non-ETF securities, excluding the risk-free asset. You could also exchange X ETF shares for whole shares of the underlying securities for a small fee.
 
-Our team's most successful strategy was ETF arbitrage. Our teammate Ishan nailed the code for ETF arbitrage. I spent many sleepless nights trying and failing to make our bot profitable via other opportunities like pennying, trading in the bid-ask spread, and implementing [Avellaneda-Stoikov](https://math.nyu.edu/~avellane/HighFrequencyTrading.pdf).
+Our team's most successful strategy was ETF arbitrage. Our teammate Ishan nailed the code for ETF arbitrage. I spent many sleepless nights trying and failing to make our bot profitable via other opportunities like pennying, trading in the bid-ask spread, and implementing [Avellaneda-Stoikov](https://people.orie.cornell.edu/sfs33/LimitOrderBook.pdf).
 
 During the competition, an organizer talked to our team and explained that pennying was intentionally made obsolete via the designed market conditions. He indicated that ETF arbitrage was a much better strategy and more representative of actual Market-Making.
 

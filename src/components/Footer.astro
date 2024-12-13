@@ -1,20 +1,11 @@
 ---
 import { NAME } from "../consts";
 const today = new Date();
-
-const { havePhotoCredits } = Astro.props;
 ---
 
-<footer class="bg-secondary-focus mt-2">
+<footer class="bg-secondary text-background mt-2">
 	&copy; {today.getFullYear()}
-	{" " + NAME}. All rights reserved. {
-		havePhotoCredits && (
-			<>
-				Personal Photography by{" "}
-				<a href="https://www.strausspeyton.com/" class="hover:underline">Strauss Peyton</a>.
-			</>
-		)
-	}
+	{" " + NAME}. All rights reserved.
 </footer>
 <style>
 	footer {
