@@ -2,45 +2,43 @@
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import BasePage from "./BasePage.astro";
-import { getImage } from "astro:assets"
+import { Icon } from "astro-icon/components";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, author } =
-	Astro.props;
-
-// const images = import.meta.glob("../images/**");
-// const heroImageImport: any = await images[`../images/${heroImage}`]()
-
-// const loadedImage = await getImage({
-//     src: heroImageImport.default,
-//     format: "webp",
-//     width: 720,
-//     height: 720,
-// });
-
+const { title, description, pubDate, updatedDate, author } = Astro.props;
 ---
 
 <BasePage>
-	<article class="sm:mt-20 block mx-auto w-[700px] text-wrap">
+	<article class="sm:mt-20 block mx-auto w-[700px] text-wrap mb-8">
+		<a href="../" class="w-50 text-lg text-primary-600 normal-case font-normal hover:underline no-underline"
+			><Icon name="angles-left-solid" class="inline-block text-sm mb-1" />Back</a
+		>
 		<div>
 			<h1 class="text-4xl font-semibold">{title}</h1>
-			<h2 class="text-lg font-medium mt-4">
+			<h2 class="text-lg font-semibold mt-4">
 				{description}
 			</h2>
-			<div class="text-primary mt-8">
-				Published <FormattedDate date={pubDate} />
+			<hr class="mt-8 mb-2 border-accent-700" />
+			<div class="text-primary-600 text-lg mb-6 flex flex-row gap-x-2">
+				<span>Published on<FormattedDate date={pubDate} /></span
+				>&middot;
 				{
 					updatedDate && (
-						<div>
-							Last updated on <FormattedDate date={updatedDate} />
-						</div>
+						<>
+							<span>
+								Last updated on{" "}
+								<FormattedDate date={updatedDate} />
+							</span>
+							<span>&middot;</span>
+						</>
 					)
 				}
-				<div class="f">{author}</div>
+				<span>{author}</span>
 			</div>
-			<hr class="my-8" />
-			<div class="prose max-w-none">
+			<div
+				class="prose max-w-none prose-headings:text-text prose-a:text-text prose-lg"
+			>
 				<slot />
 			</div>
 		</div>

@@ -9,21 +9,21 @@ const posts = (await getCollection("blog")).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 
-const subheaderStyles = "text-2xl sm:text-3xl mb-6 mt-3";
+const subheaderStyles = "text-2xl sm:text-4xl mb-4 sm:mt-12 mt-6";
 const buttonStyles =
-	"btn btn-link sm:btn-lg normal-case font-normal no-underline text-accent";
+	"btn btn-link btn-lg normal-case font-normal no-underline text-accent";
 ---
 
 <BasePage>
 	<div
-		class="sm:mt-20 block mx-auto max-w-[700px] text-wrap text-xs sm:text-base"
+		class="sm:mt-20 block mx-auto max-w-[700px] text-wrap sm:text-lg"
 	>
-		<h1 class="text-5xl my-4">Sam Baumohl</h1>
+		<h1 class="text-4xl sm:text-5xl my-4 font-semibold">Sam Baumohl</h1>
 		<p class="mb-1">
 			I am a student at the <span class="text-accent"
 				>University of Wisconsin-Madison</span
 			> studying
-			<span class="text-primary">Computer Sciences</span> and <span
+			<span class="text-primary-400">Computer Sciences</span> and <span
 				class="text-success">Mathematics</span
 			>. I'm interested in software development, machine learning/AI, and
 			technology policy. I like to read, solve problems, and work on
@@ -96,7 +96,7 @@ const buttonStyles =
 	</div>
 </BasePage>
 <dialog id="email_modal" class="modal">
-	<div class="modal-box text-lg">
+	<div class="modal-box text-lg bg-background">
 		<form method="dialog">
 			<button
 				class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
@@ -105,7 +105,7 @@ const buttonStyles =
 		</form>
 		<h3 class="text-lg font-bold">Email Address</h3>
 		<p class="py-4">
-			<span class="text-primary">sam</span> (at) <span class="text-info"
+			<span class="text-primary-400">sam</span> (at) <span class="text-info"
 				>baumohl</span
 			> (dot) <span class="text-accent">dev</span>
 		</p>
