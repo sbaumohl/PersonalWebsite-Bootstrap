@@ -11,7 +11,7 @@ const { title, description, pubDate, updatedDate, author } = Astro.props;
 
 <BasePage>
 	<article class="sm:mt-20 block mx-auto w-[700px] text-wrap mb-8">
-		<a href="../" class="w-50 text-lg text-primary-600 normal-case font-normal hover:underline no-underline"
+		<a href="../" class="w-50 text-lg text-primary normal-case font-normal hover:underline no-underline"
 			><Icon name="angles-left-solid" class="inline-block text-sm mb-1" />Back</a
 		>
 		<div>
@@ -19,8 +19,8 @@ const { title, description, pubDate, updatedDate, author } = Astro.props;
 			<h2 class="text-lg font-semibold mt-4">
 				{description}
 			</h2>
-			<hr class="mt-8 mb-2 border-accent-700" />
-			<div class="text-primary-600 text-lg mb-6 flex flex-row gap-x-2">
+			<hr class="mt-8 mb-2 border-primary" />
+			<div class="text-primary text-lg mb-6 flex flex-row gap-x-2">
 				<span>Published on<FormattedDate date={pubDate} /></span
 				>&middot;
 				{
@@ -37,7 +37,7 @@ const { title, description, pubDate, updatedDate, author } = Astro.props;
 				<span>{author}</span>
 			</div>
 			<div
-				class="prose max-w-none prose-headings:text-text prose-a:text-text prose-lg"
+				class="prose max-w-none prose-headings:text-text prose-a:text-text prose-strong:text-text prose-lg"
 			>
 				<slot />
 			</div>
