@@ -11,7 +11,7 @@ const posts = (await getCollection("blog")).sort(
 
 const subheaderStyles = "text-2xl sm:text-4xl mb-4 sm:mt-12 mt-6";
 const buttonStyles =
-	"btn btn-link btn-lg normal-case font-normal no-underline text-text hover:scale-105 duration-100";
+	"btn btn-link btn-lg normal-case font-normal no-underline text-darker dark:text-bright hover:text-text";
 ---
 
 <BasePage>
@@ -41,12 +41,6 @@ const buttonStyles =
 						>Wisconsin AI Safety Initiative (WAISI)</CustomLink
 					>
 				</li>
-				<li>
-					having fun with&nbsp;<CustomLink
-						href="https://adventofcode.com/"
-						>Advent Of Code</CustomLink
-					>
-				</li>
 			</li>
 		</ul>
 		<h2 class={subheaderStyles}>Socials</h2>
@@ -73,8 +67,7 @@ const buttonStyles =
 			{
 				posts.reverse().map((post, _) => (
 					<a href={`/blog/${post.slug}/`}>
-						{/* border-solid border-accent border */}
-						<div class="bg-primary flex flex-col md:flex-row gap-6  p-3 hover:scale-105 duration-100 shadow-2xl rounded">
+						<div class="flex flex-col md:flex-row gap-6 p-3 border border-solid border-darker-500 dark:border-bright-300 hover:border-darker dark:hover:border-bright">
 							<div class="flex flex-col">
 								<h4 class="font-semibold text-xl">
 									{post.data.title}
