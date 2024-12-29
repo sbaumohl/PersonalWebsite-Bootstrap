@@ -9,10 +9,10 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			// typography: {
+			// typography: ({ theme }) => ({
 			// 	custom: {
 			// 		css: {
-			// 			'--tw-prose-body': '#131111 !important',
+			// 			'--tw-prose-body': theme("colors.blue[900]"),
 			// 			'--tw-prose-headings': '#131111 !important',
 			// 			'--tw-prose-lead': '#131111 !important',
 			// 			// '--tw-prose-links': theme('colors.pink[900]'),
@@ -46,7 +46,7 @@ module.exports = {
 			// 			// '--tw-prose-invert-td-borders': theme('colors.pink[700]')
 			// 		},
 			// 	},
-			// },
+			// }),
 			fontFamily: {
 				serif: [
 					"'Source Serif 4 Variable'",
@@ -94,6 +94,6 @@ module.exports = {
 		require("daisyui"),
 	],
 	daisyui: {
-		themes: false,
+		themes: ["lofi"],
 	},
 };

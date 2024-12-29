@@ -11,7 +11,7 @@ const posts = (await getCollection("blog")).sort(
 
 const subheaderStyles = "text-2xl sm:text-4xl mb-4 sm:mt-12 mt-6";
 const buttonStyles =
-	"btn btn-link btn-lg normal-case font-normal no-underline text-darker dark:text-bright hover:text-text";
+	"btn btn-link btn-lg normal-case font-normal no-underline";
 ---
 
 <BasePage>
@@ -57,17 +57,19 @@ const buttonStyles =
 					Github
 				</button>
 			</form>
-			<button class={buttonStyles} onclick="email_modal.showModal()">
-				<Icon name="mail" />
-				Email
-			</button>
-		</div>
+			<div>
+				<button class={buttonStyles} onclick="email_modal.showModal()">
+					<Icon name="mail" />
+					Email
+				</button>
+			</div>
+					</div>
 		<h2 class={subheaderStyles}>Blog Posts</h2>
-		<section class="flex flex-col gap-8 mb-16">
+		<section class="flex flex-col gap-8 mb-16 p-1">
 			{
 				posts.reverse().map((post, _) => (
 					<a href={`/blog/${post.slug}/`}>
-						<div class="flex flex-col md:flex-row gap-6 p-3 border border-solid border-darker-500 dark:border-bright-300 hover:border-darker dark:hover:border-bright">
+						<div class="flex flex-col md:flex-row gap-6 p-3 border border-solid border-darker-500 hover:border-darker">
 							<div class="flex flex-col">
 								<h4 class="font-semibold text-xl">
 									{post.data.title}
@@ -86,7 +88,7 @@ const buttonStyles =
 	</div>
 </BasePage>
 <dialog id="email_modal" class="modal">
-	<div class="modal-box text-lg bg-background">
+	<div class="modal-box text-lg">
 		<form method="dialog">
 			<button
 				class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
