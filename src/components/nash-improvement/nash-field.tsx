@@ -45,18 +45,23 @@ export default function D3Visualization() {
 
 		d3.axisBottom(xScale)(svg.append("g")
 			.attr("transform", `translate(0, ${svgHeight - margin})`));
-		const points = [];
+		let points = [];
 		for (let x of xScale.ticks(25)) {
 			for (let y of yScale.ticks(25)) {
 				points.push([x, y]);
+				// if (x == 0 && y == 0) {
+					console.log(points.length, [(x * gridWidth) + margin, y * gridHeight + margin])
+				// }
+				// console.log([(x * gridWidth) + margin, y * gridHeight + margin]);
 			}
 		}
-		console.log(points);
+		// points.push([0, 0])
+		console.log(points.length)
 
 		svg.append('defs').append('marker')
 			.attr('id', 'arrowhead')
 			.attr('viewBox', '0 -5 10 10')
-			.attr('refX', 8)
+			.attr('refX', 0)
 			.attr('refY', 0)
 			.attr('markerWidth', 4)
 			.attr('markerHeight', 4)
@@ -75,18 +80,20 @@ export default function D3Visualization() {
 		// 	.attr('cy', d => d[1] * gridHeight + margin)
 		// 	.attr('thing', d => d[0])
 
-		svg
+		let group = svg.append("g").attr("id", "points");
+		group
 			.selectAll('line')
 			.data(points)
 			.enter()
 			.append('line')
 			.attr('x1', d => d[0] * gridWidth + margin)
 			.attr('y1', d => d[1] * gridHeight + margin)
-			.attr('x2', d => d[0] * gridWidth + margin + 20)
-			.attr('y2', d => d[1] * gridHeight + margin + 5) // Note the negative sign because SVG y-axis is inverted
+			.attr('x2', d => d[0] * gridWidth + margin + 1.5)
+			.attr('y2', d => d[1] * gridHeight + margin + 1) // Note the negative sign because SVG y-axis is inverted
 			.attr('stroke', 'steelblue')
 			.attr('stroke-width', 1.5)
-			.attr('marker-end', 'url(#arrowhead)');
+			.attr('marker-start', 'url(#arrowhead)');
+
 
 	}, []);
 
