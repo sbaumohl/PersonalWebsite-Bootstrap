@@ -38,11 +38,11 @@ export default function D3Visualization() {
   const inputStyling = "w-1/3";
 
   // controls
-  const [prestSelection, setPresetSelection] = useState(null);
+  const [prestSelection, setPresetSelection] = useState("none");
   const [rewardMatrix, setRewardMatrix] = useState([
     [
-      [1, 1],
-      [1, 1],
+      [0, 1],
+      [1, 0],
     ],
     [
       [0, 1],
@@ -92,7 +92,24 @@ export default function D3Visualization() {
     },
   ];
 
-  const onChange = (p, i, j, v) => {};
+  const onInputChange = (p, i, j, v) => {
+    console.log("change", p, i, j, v);
+    setPresetSelection("none");
+
+    // update reward matrix with new value, ensure deep copy
+    const rewardMatCopy = JSON.parse(JSON.stringify(rewardMatrix));
+    rewardMatCopy[p][i][j] = parseFloat(v);
+    setRewardMatrix(rewardMatCopy);
+    console.log(rewardMatrix);
+  };
+
+  const onSelectPreset = (val) => {
+    setPresetSelection(val);
+    if (val === "none") {
+      return;
+    }
+    setRewardMatrix(presetOptions[val].val);
+  };
 
   useEffect(() => {
     // Your D3 code here
@@ -168,13 +185,18 @@ export default function D3Visualization() {
     <div>
       <svg ref={svgRef} width={svgWidth} height={svgHeight}></svg>
 
-      <h2 class="text-center">Reward Matrix</h2>
+      <h2 className="text-center">Reward Matrix</h2>
       <div>
         <h3>Presets</h3>
-        <select name="Preset Reward Matrix" id="presetmat">
+        <select
+          name="Preset Reward Matrix"
+          id="presetmat"
+          value={prestSelection}
+          onChange={(e) => onSelectPreset(e.target.value)}
+        >
           <option value="none">Select a preset game</option>
-          {presetOptions.map((o) => (
-            <option value={o.val} key={o.name}>
+          {presetOptions.map((o, i) => (
+            <option value={i} key={o.name}>
               {o.name}
             </option>
           ))}
@@ -183,29 +205,81 @@ export default function D3Visualization() {
       <table>
         <tr>
           <th></th>
-          <th>Column Action C</th>
+          <th>Column Action C (x-axis)</th>
           <th>Column Action D</th>
         </tr>
         <tr>
-          <td>Row Action A</td>
+          <td>Row Action A (y-axis)</td>
           <td>
-            (<input type="number" step=".01" value={rewardMatrix[0][0][0]} />,{" "}
-            <input type="number" step=".01" value={rewardMatrix[1][0][0]} />)
+            (
+            <input
+              onChange={(d) => onInputChange(0, 0, 0, d.target.value)}
+              type="number"
+              step=".01"
+              value={rewardMatrix[0][0][0]}
+            />
+            ,{" "}
+            <input
+              onChange={(d) => onInputChange(1, 0, 0, d.target.value)}
+              type="number"
+              step=".01"
+              value={rewardMatrix[1][0][0]}
+            />
+            )
           </td>
           <td>
-            (<input type="number" step=".01" value={rewardMatrix[0][0][1]} />,{" "}
-            <input type="number" step=".01" value={rewardMatrix[1][0][1]} />)
+            (
+            <input
+              onChange={(d) => onInputChange(0, 0, 1, d.target.value)}
+              type="number"
+              step=".01"
+              value={rewardMatrix[0][0][1]}
+            />
+            ,{" "}
+            <input
+              onChange={(d) => onInputChange(1, 0, 1, d.target.value)}
+              type="number"
+              step=".01"
+              value={rewardMatrix[1][0][1]}
+            />
+            )
           </td>
         </tr>
         <tr>
           <td>Row Action B</td>
           <td>
-            (<input type="number" step=".01" value={rewardMatrix[0][1][0]} />,{" "}
-            <input type="number" step=".01" value={rewardMatrix[1][1][0]} />)
+            (
+            <input
+              type="number"
+              step=".01"
+              value={rewardMatrix[0][1][0]}
+              onChange={(d) => onInputChange(0, 1, 0, d.target.value)}
+            />
+            ,{" "}
+            <input
+              onChange={(d) => onInputChange(1, 1, 0, d.target.value)}
+              type="number"
+              step=".01"
+              value={rewardMatrix[1][1][0]}
+            />
+            )
           </td>
           <td>
-            (<input type="number" step=".01" value={rewardMatrix[0][1][1]} />,{" "}
-            <input type="number" step=".01" value={rewardMatrix[1][1][1]} />)
+            (
+            <input
+              onChange={(d) => onInputChange(0, 1, 1, d.target.value)}
+              type="number"
+              step=".01"
+              value={rewardMatrix[0][1][1]}
+            />
+            ,{" "}
+            <input
+              onChange={(d) => onInputChange(1, 1, 1, d.target.value)}
+              type="number"
+              step=".01"
+              value={rewardMatrix[1][1][1]}
+            />
+            )
           </td>
         </tr>
       </table>
