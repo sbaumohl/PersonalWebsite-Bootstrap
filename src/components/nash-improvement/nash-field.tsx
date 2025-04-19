@@ -3,6 +3,37 @@ import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import "./nash.css";
 
+function findMixedStrategyNE2x2(payoffs: number[][][]): {
+  pStar: number | null;
+  qStar: number | null;
+} {
+  const a = payoffs[0][0][0];
+  const b = payoffs[0][1][0];
+  const c = payoffs[1][0][0];
+  const d = payoffs[1][1][0];
+
+  const x = payoffs[0][0][1];
+  const y = payoffs[0][1][1];
+  const z = payoffs[1][0][1];
+  const w = payoffs[1][1][1];
+
+  let qStar: number | null = null;
+  const detP1 = a - b - c + d;
+  const numP1 = d - b;
+  if (detP1 !== 0) {
+    qStar = numP1 / detP1;
+  }
+
+  let pStar: number | null = null;
+  const detP2 = x - z - y + w;
+  const numP2 = w - z;
+  if (detP2 !== 0) {
+    pStar = numP2 / detP2;
+  }
+
+  return { pStar, qStar };
+}
+
 /**
  * Generates equi-distant points on a square mesh that starts in both dimensions on `s` and ends on `e`.
  * `n` is the number of ticks in each dimension. Ticks will be generated such that the distance from
@@ -17,6 +48,50 @@ function generate_mesh(s, e, n): number[] {
     for (let j = 0; j < n; j++) points.push([(i + 0.5) * dd, (j + 0.5) * dd]);
 
   return points;
+}
+
+function nash_improvement_function() {}
+
+/*
+ * Given a strategy of [[row player strat] , [column player strat]] and our reward matrix
+ * the player number (0 for row, 1 for col)
+ * and the action (0 for first action (top or left), 1 for second)
+ * returns the regret of playing the current strategy versus always playing the given action
+ */
+function regret(
+  matrix: Number[][][],
+  strats: Number[][],
+  player: Number,
+  action: Number,
+): Number {}
+
+/*
+ * Calculates expected reward from given strategies
+ */
+function reward(
+  matrix: Number[][][],
+  strats: Number[][],
+): { row: Number; column: Number } {
+  let exp: Number[] = [
+    strats[0][0] * strats[1][0],
+    strats[0][0] * strats[1][1],
+    strats[0][1] * strats[1][0],
+    strats[0][1] * strats[1][1],
+  ];
+
+  return {
+    row:
+      exp[0] * matrix[0][0][0] +
+      exp[1] * matrix[0][0][1] +
+      exp[2] * matrix[0][1][0] +
+      exp[3] * matrix[0][1][1],
+
+    column:
+      exp[0] * matrix[1][0][0] +
+      exp[1] * matrix[1][0][1] +
+      exp[2] * matrix[1][1][0] +
+      exp[3] * matrix[1][1][1],
+  };
 }
 
 // Look into https://observablehq.com/plot/marks/vector#vector-mark
@@ -93,14 +168,24 @@ export default function D3Visualization() {
   ];
 
   const onInputChange = (p, i, j, v) => {
-    console.log("change", p, i, j, v);
     setPresetSelection("none");
 
     // update reward matrix with new value, ensure deep copy
     const rewardMatCopy = JSON.parse(JSON.stringify(rewardMatrix));
     rewardMatCopy[p][i][j] = parseFloat(v);
     setRewardMatrix(rewardMatCopy);
+
+    const { pStar, qStar } = findMixedStrategyNE2x2(rewardMatrix);
+    console.log(pStar, qStar);
     console.log(rewardMatrix);
+
+    console.log(
+      "reward ",
+      reward(rewardMatrix, [
+        [1, 0],
+        [1, 0],
+      ]),
+    );
   };
 
   const onSelectPreset = (val) => {
@@ -149,7 +234,6 @@ export default function D3Visualization() {
     );
 
     let points = generate_mesh(0, 1, 25);
-    console.log(points);
 
     svg
       .append("defs")
@@ -214,6 +298,7 @@ export default function D3Visualization() {
             (
             <input
               onChange={(d) => onInputChange(0, 0, 0, d.target.value)}
+              onClick={() => setPresetSelection("none")}
               type="number"
               step=".01"
               value={rewardMatrix[0][0][0]}
@@ -221,6 +306,7 @@ export default function D3Visualization() {
             ,{" "}
             <input
               onChange={(d) => onInputChange(1, 0, 0, d.target.value)}
+              onClick={() => setPresetSelection("none")}
               type="number"
               step=".01"
               value={rewardMatrix[1][0][0]}
@@ -231,6 +317,7 @@ export default function D3Visualization() {
             (
             <input
               onChange={(d) => onInputChange(0, 0, 1, d.target.value)}
+              onClick={() => setPresetSelection("none")}
               type="number"
               step=".01"
               value={rewardMatrix[0][0][1]}
@@ -238,6 +325,7 @@ export default function D3Visualization() {
             ,{" "}
             <input
               onChange={(d) => onInputChange(1, 0, 1, d.target.value)}
+              onClick={() => setPresetSelection("none")}
               type="number"
               step=".01"
               value={rewardMatrix[1][0][1]}
@@ -254,10 +342,12 @@ export default function D3Visualization() {
               step=".01"
               value={rewardMatrix[0][1][0]}
               onChange={(d) => onInputChange(0, 1, 0, d.target.value)}
+              onClick={() => setPresetSelection("none")}
             />
             ,{" "}
             <input
               onChange={(d) => onInputChange(1, 1, 0, d.target.value)}
+              onClick={() => setPresetSelection("none")}
               type="number"
               step=".01"
               value={rewardMatrix[1][1][0]}
@@ -268,6 +358,7 @@ export default function D3Visualization() {
             (
             <input
               onChange={(d) => onInputChange(0, 1, 1, d.target.value)}
+              onClick={() => setPresetSelection("none")}
               type="number"
               step=".01"
               value={rewardMatrix[0][1][1]}
@@ -275,6 +366,7 @@ export default function D3Visualization() {
             ,{" "}
             <input
               onChange={(d) => onInputChange(1, 1, 1, d.target.value)}
+              onClick={() => setPresetSelection("none")}
               type="number"
               step=".01"
               value={rewardMatrix[1][1][1]}

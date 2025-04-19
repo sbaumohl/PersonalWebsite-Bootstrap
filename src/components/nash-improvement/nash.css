@@ -31,7 +31,7 @@ select#presetmat:focus {
 table {
   border-collapse: collapse;
   width: auto;
-  margin-top: 15px;
+  margin-top: 5px;
   border: 2px solid #444;
 }
 
