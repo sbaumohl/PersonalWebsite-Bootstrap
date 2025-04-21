@@ -53,17 +53,18 @@ function generate_mesh(s, e, n): number[] {
 function nash_improvement_function() {}
 
 /*
- * Given a strategy of [[row player strat] , [column player strat]] and our reward matrix
- * the player number (0 for row, 1 for col)
- * and the action (0 for first action (top or left), 1 for second)
- * returns the regret of playing the current strategy versus always playing the given action
+ * Regret function comparing against pure strats
  */
-function regret(
-  matrix: Number[][][],
+function clipped_regret(
+  player: 0 | 1,
+  action: 0 | 1,
   strats: Number[][],
-  player: Number,
-  action: Number,
-): Number {}
+  matrix: Number[][][],
+) {
+  alt_strat = strats.slice();
+  alt_strat[player] = [1 - action, action];
+  return Math.max(reward(matrix, alt_strat) - reward(matrix, strats), 0);
+}
 
 /*
  * Calculates expected reward from given strategies
@@ -168,6 +169,9 @@ export default function D3Visualization() {
   ];
 
   const onInputChange = (p, i, j, v) => {
+    if (Number.isNaN(v)) {
+      return;
+    }
     setPresetSelection("none");
 
     // update reward matrix with new value, ensure deep copy
@@ -175,15 +179,11 @@ export default function D3Visualization() {
     rewardMatCopy[p][i][j] = parseFloat(v);
     setRewardMatrix(rewardMatCopy);
 
-    const { pStar, qStar } = findMixedStrategyNE2x2(rewardMatrix);
-    console.log(pStar, qStar);
-    console.log(rewardMatrix);
-
     console.log(
-      "reward ",
+      "REWARD ",
       reward(rewardMatrix, [
         [1, 0],
-        [1, 0],
+        [0, 1],
       ]),
     );
   };
